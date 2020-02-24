@@ -29,6 +29,8 @@ function setAttack(){
 	x = parseInt(document.getElementById("PATK").value);
 	document.getElementById("message").innerHTML = (x+6);
 	document.getElementById("PATK").disabled = true;
+
+	localStorage.setItem("name", x);
 }
 
 function setHealth(){
@@ -37,29 +39,32 @@ function setHealth(){
 	y = parseInt(document.getElementById("PHP").value);
 	yy = parseInt(document.getElementById("PHP2").value);
 	document.getElementById("message2").innerHTML = (y+yy+12);
+	document.getElementById("PHP").disabled = true;
+	document.getElementById("PHP2").disabled = true;
+
+
 }
 
 function setLuck(){
 	var z;
 	z = parseInt(document.getElementById("PLCK").value);
 	document.getElementById("message3").innerHTML = (z+6);
+	document.getElementById("PLCK").disabled = true;
 }
 
 function setSkill(){
 	var w;
 	w = parseInt(document.getElementById("PSKL").value);
 	document.getElementById("message4").innerHTML = (w+6);
+	document.getElementById("PSKL").disabled = true;
 }
 
- function manage(PATK,PHP,PHP2,PLCK,PSKL) {
-        var bt = document.getElementById('savebtn');
-        if (PATK.value != '' || PHP.value != '' || PHP2.value != '' || PLCK.value != '' || PSKL.value != '') {
-            bt.disabled = false;
-        }
-        else {
-            bt.disabled = true;
-        }
-    } 
+
+
+
+
+
+
 
 
 
