@@ -36,15 +36,12 @@ function isInputNumber(evt){
 // var www;
 
 function setAttack(){
-	x = parseInt(document.getElementById("PATK").value);
-	xx = 6 + x;
+	var x = parseInt(document.getElementById("PATK").value);
+	var xx = 6 + x;
 	document.getElementById("message").innerHTML = xx;
 	document.getElementById("PATK").disabled = true;
 	
 	localStorage.setItem("Attack", xx);
-
-	
-	return xx;
 
 }
 
@@ -54,64 +51,93 @@ function setAttack(){
 
 
 function setHealth(){
-	y = parseInt(document.getElementById("PHP").value);
-	yy = parseInt(document.getElementById("PHP2").value);
-	yyy = 12 + y + yy;
+	var y = parseInt(document.getElementById("PHP").value);
+	var yy = parseInt(document.getElementById("PHP2").value);
+	var yyy = 12 + y + yy;
 	document.getElementById("message2").innerHTML = (yyy);
 	document.getElementById("PHP").disabled = true;
 	document.getElementById("PHP2").disabled = true;
 
 	localStorage.setItem("Health", yyy);
 
-	return y;
-	return yy;
-	return yyy;
 }
 
 function setLuck(){
-	z = parseInt(document.getElementById("PLCK").value);
-	zz = z + 6;
+	var z = parseInt(document.getElementById("PLCK").value);
+	var zz = z + 6;
 	document.getElementById("message3").innerHTML = (zz);
 	document.getElementById("PLCK").disabled = true;
 
 	localStorage.setItem("Luck", zz);
 
-	return z;
-	return zz;
 }
 
 function setSkill(){
-	w = parseInt(document.getElementById("PSKL").value);
-	ww = parseInt(document.getElementById("PSKL2").value);
-	www = w + ww;
+	var w = parseInt(document.getElementById("PSKL").value);
+	var ww = parseInt(document.getElementById("PSKL2").value);
+	var www = w + ww;
 	document.getElementById("message4").innerHTML = (www);
 	document.getElementById("PSKL").disabled = true;
 	document.getElementById("PSKL2").disabled = true;
 
 	localStorage.setItem("Skill", www);
-
-	return w;
-	return ww;
-	return www;
 }
 
 
-function test(){
-	patk = localStorage.getItem("Attack");
+function stats(){
+	var patk = localStorage.getItem("Attack");
 	document.getElementById("message1.1").innerHTML = (patk);
-	php = localStorage.getItem("Health");
+	var php = localStorage.getItem("Health");
 	document.getElementById("message2.1").innerHTML = (php);
-	plck = localStorage.getItem("Luck");
+	var plck = localStorage.getItem("Luck");
 	document.getElementById("message3.1").innerHTML = (plck);
-	pskl = localStorage.getItem("Skill");
+	var pskl = localStorage.getItem("Skill");
 	document.getElementById("message4.1").innerHTML = (pskl);
 
 }
-window.onload=test;
+window.onload=stats;
+
+function saveNP(){
+	var np = document.getElementById("npad").value;
+	
+	
+	localStorage.setItem("Edit", np);
+
+	var npp = localStorage.getItem("Edit");
+
+	document.getElementById("writing").innerHTML = (npp)
+
+
+}
 
 
 
+function npdata(){
+	var np = localStorage.getItem("Edit");
+	document.getElementById("writing").innerHTML = np;
 
+	
+}
+window.onload=npdata;
 
+function npupdate(){
+	// Get the existing data
+	var existing = localStorage.getItem('Edit');
 
+	var npup = document.getElementById("npad").value;
 
+	// If no existing data, use the value by itself
+	// Otherwise, add the new value to it
+	var data = existing ? existing + (' /// ')+npup : '';
+
+	// Save back to localStorage
+	localStorage.setItem('Edit', data);
+
+	var nppup = localStorage.getItem("Edit");
+
+	document.getElementById("writing").innerHTML = (nppup)
+}
+
+function resetForm(){
+	document.getElementById("npadForm").reset();
+}
