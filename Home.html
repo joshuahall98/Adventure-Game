@@ -31,13 +31,14 @@
 
 <div class="divbod">
 	<h1 >Introduction </h1>
-	<p >Game I am making</p>
+	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a></p>
 	<h1 >Rules</h1>
 	<p >
-	<b>Set attack: 6 + dice</b><br/>
-	<b>Set health: 12 + 2 dice</b> <br/>
-	<b>Set skill: 6 + dice</b> <br/>
-	<b>Set luck: 6 + dice</b> <br/>
+	First roll the die to set your player stats <br/>
+	<b>Attack:</b> <br/>
+	<b>Health:</b> <br/>
+	<b>Luck:</b> <br/>
+	<b>Skill:</b> <br/>
 	<b>Combat:</b> roll die twice, add onto attack amount, higher number wins round, loser deduct 2 points from health, combat ends when user dies.<br/>
 	<b>Skill:</b> Can be increased or decreased in game, stat needed to do challenges/use weapons.<br/>
 	<b>Luck:</b> Roll both die, if number is less than or equal to luck stat: you are lucky, if above: you are unlucky, after every positive lucky situation reuce luck stat by 1
@@ -58,6 +59,7 @@
 		<br/>
 		Player Skill:
 		<input type="text" id="PSKL" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)">
 	</form>
 	<br/>
 	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill()" disabled>Save</button>
@@ -75,6 +77,10 @@
 	<p style="text-align: right"><b>Player Health: <span id="message2"></span></b></p>
 	<p style="text-align: right"><b>Player Luck: <span id="message3"></span></b></p>
 	<p style="text-align: right"><b>Player Skill: <span id="message4"></span></b></p>
+
+	<input type="button" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;">
+
+
 	<br/>
 	<br/>
 

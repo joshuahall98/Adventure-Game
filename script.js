@@ -24,44 +24,90 @@ function isInputNumber(evt){
 	}
 }
 
-function setAttack(){
-	var x;
-	x = parseInt(document.getElementById("PATK").value);
-	document.getElementById("message").innerHTML = (x+6);
-	document.getElementById("PATK").disabled = true;
+// var x;
+// var xx;
+// var y;
+// var yy;
+// var yyy;
+// var z;
+// var zz;
+// var w;
+// var ww;
+// var www;
 
-	localStorage.setItem("name", x);
+function setAttack(){
+	x = parseInt(document.getElementById("PATK").value);
+	xx = 6 + x;
+	document.getElementById("message").innerHTML = xx;
+	document.getElementById("PATK").disabled = true;
+	
+	localStorage.setItem("Attack", xx);
+
+	
+	return xx;
+
 }
 
+
+
+ 
+
+
 function setHealth(){
-	var yy = 0;
-	var y = 0;
 	y = parseInt(document.getElementById("PHP").value);
 	yy = parseInt(document.getElementById("PHP2").value);
-	document.getElementById("message2").innerHTML = (y+yy+12);
+	yyy = 12 + y + yy;
+	document.getElementById("message2").innerHTML = (yyy);
 	document.getElementById("PHP").disabled = true;
 	document.getElementById("PHP2").disabled = true;
 
+	localStorage.setItem("Health", yyy);
 
+	return y;
+	return yy;
+	return yyy;
 }
 
 function setLuck(){
-	var z;
 	z = parseInt(document.getElementById("PLCK").value);
-	document.getElementById("message3").innerHTML = (z+6);
+	zz = z + 6;
+	document.getElementById("message3").innerHTML = (zz);
 	document.getElementById("PLCK").disabled = true;
+
+	localStorage.setItem("Luck", zz);
+
+	return z;
+	return zz;
 }
 
 function setSkill(){
-	var w;
 	w = parseInt(document.getElementById("PSKL").value);
-	document.getElementById("message4").innerHTML = (w+6);
+	ww = parseInt(document.getElementById("PSKL2").value);
+	www = w + ww;
+	document.getElementById("message4").innerHTML = (www);
 	document.getElementById("PSKL").disabled = true;
+	document.getElementById("PSKL2").disabled = true;
+
+	localStorage.setItem("Skill", www);
+
+	return w;
+	return ww;
+	return www;
 }
 
 
+function test(){
+	patk = localStorage.getItem("Attack");
+	document.getElementById("message1.1").innerHTML = (patk);
+	php = localStorage.getItem("Health");
+	document.getElementById("message2.1").innerHTML = (php);
+	plck = localStorage.getItem("Luck");
+	document.getElementById("message3.1").innerHTML = (plck);
+	pskl = localStorage.getItem("Skill");
+	document.getElementById("message4.1").innerHTML = (pskl);
 
-
+}
+window.onload=test;
 
 
 
