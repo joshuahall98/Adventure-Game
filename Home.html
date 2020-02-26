@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Adventure Game Rules</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="script.js"></script>
-
+	<title>Quest for the Lost King</title>
+	<link rel="stylesheet" type="text/css" href="style.css" >
+	
 
 </head>
 <body class="divbod">
 
 <div >
-	<h1>Quest for the Lost King</h1>
+	<h1 style="padding-top: 20%; font-family: ">Quest for the Lost King</h1>
 	<input type="button" onclick="location.href='Rules.html', newgame()" value="New Game" style="height: 50px; width: 150px;">
 </div>
 </body>
-
+<script>
+	function newgame(){
+		localStorage.clear();
+		var empty = " ";
+		localStorage.setItem("Edit", empty);
+	}
+</script>
 
 </html>

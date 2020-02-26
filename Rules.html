@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Adventure Game Rules</title>
+	<title>Rules</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 
@@ -31,20 +31,31 @@
 
 <div >
 	<h1 >Introduction </h1>
-	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a></p>
+
+	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a><br/>
+	The goal of this game is to reach the ending without your health depleting to 0 and there will be a number of tasks trying to prevent you from reaching this goal!<br/>
+	All choices in this game are made by YOU the player, lets just hope you make the right ones!</p>
+
 	<h1 >Rules</h1>
-	<p >
-	First roll the die to set your player stats <br/>
-	<b>Attack:</b> This stat is the players combat strength and overall strength, used in combat and to complete strength based tasks, can be increased and decreased temporarily<br/>
-	<b>Health:</b> This is a players health points, when these reach 0 the game is over, health can be both increased or decreased <br/>
-	<b>Luck:</b> <br/>
-	<b>Skill:</b> <br/>
-	<b>Combat:</b> roll die twice, add onto attack amount, higher number wins round, loser deduct 2 points from health, combat ends when user dies.<br/>
-	<b>Skill:</b> Can be increased or decreased in game, stat needed to do challenges/use weapons.<br/>
-	<b>Luck:</b> Roll both die, if number is less than or equal to luck stat: you are lucky, if above: you are unlucky, after every positive lucky situation reuce luck stat by 1
+
+	<p>
+	<b>Below is all the information you will need to play the game</b><br/>
+	<b>Attack:</b> This stat is the players combat strength and overall strength, used in combat and to complete strength based tasks, can be increased and decreased temporarily.<br/>
+	<b>Health:</b> This is a players health points, when this reaches 0 the game is over, health can be both increased(food, potions etc) or decreased(combat, hazards etc). <br/>
+	<b>Luck:</b> Used in situations that require luck, when these situations occur, roll both the dice, if the sum of both dice is equal to or lower than your current luck stat you have been lucky, if the sum is higher then you are unlucky. On the completion of a succesful luck situation your current luck stat will reduce by 1(you can't always be lucky!). <br/>
+	<b>Skill:</b> The skill stat decides what weapons you can use and can help a player through skill based situations, this stat can be increased(training, potions etc).<br/>
+	<b>Combat:</b> Combat will be frequent throughout this game, when placed in a combat situation it plays out similarly almost everytime(Unless specific changes are stated in the combat dialogue).<br/>
+	<b>Notepad:</b> Found in the bottom left corner, this helpful tool allows you to take notes as you play to remember helpful tips you may be given. <br/>
+	Give it a try! Press the notepad button and type in the input bar 'Don't trust the squirrel!'.<br/>
+	<b>Map:</b> Found in the bottom left corner, this button will take you to 'Sketch.io' where you can draw and save a map so you can keep track of where you have been for future playthroughs.<br/>
+	<b>BackPack:</b> Found in the bottom left corner, when you are given items you can keep track of them here.<br/>
+	<b>Stats:</b> Found in the bottom right corner, this tab keeps track of your current playe stats. Watch that health!<br/>
+	<b>Dice:</b>The dice are used frequently throughout the story and will always be found in the top left corner, you roll the dice then type your outcome into the input fields(if a player wishes to cheat they ruin the experience by their own choice, we get it, you're bad at the game kid!). <br/>
+	Try it out by rolling the dice and filling in your player stats!
 	</p>
+
 	<form>
-		Player Attack:
+		<span style="font-weight: bold; font-size: 20px;">Player Attack:
 		<input type="text" id="PATK" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
 		<br/>
 		<br/>
@@ -59,41 +70,39 @@
 		<br/>
 		Player Skill:
 		<input type="text" id="PSKL" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)">
+		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)"></span>
 	</form>
 	<br/>
-	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill()" disabled>Save</button>
+	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill(), document.getElementById('begin').disabled=false;" disabled>Save</button>
 	<br/>
 	<br/>
 
-<!-- 	<button id="b" onclick="random();"> Roll Die 1 </button>
-	<button id="b2" onclick="random2();"> Roll Die 2 </button>
-	<p ><span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span></p>
-	<button id="b3" onclick="reset();"> Reset Die </button> -->
+
+	<input type="button" id="begin" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;" disabled="true">
+
 	
+	<!-- ALL 4 KIT OPTIONS -->
 
-	<div style="position: fixed;bottom: 0;right: 0;">
-		<p style="text-align: right"><b>Player Attack: <span id="message"></span></b></p>
-		<p style="text-align: right"><b>Player Health: <span id="message2"></span></b></p>
-		<p style="text-align: right"><b>Player Luck: <span id="message3"></span></b></p>
-		<p style="text-align: right"><b>Player Skill: <span id="message4"></span></b></p>
-	</div>
-
-	<input type="button" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;">
-		<br/>
-		<br/>
-	<div style="position: fixed;top: 0;right: 0;">
-		<a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a>
+	<div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;">
+		<b><span style="font-size: 20px;">Player Attack: <span id="message"></span></span></b><br/>
+		<b><span style="font-size: 20px;">Player Health: <span id="message2"></span></span></b><br/>
+		<b><span style="font-size: 20px;">Player Luck: <span id="message3"></span></span></b><br/>
+		<b><span style="font-size: 20px;">Player Skill: <span id="message4"></span></span></b>
 	</div>
 
 	<div style="position: fixed;bottom: 0;left: 0;">
-		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a>
+		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
+		<a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
+		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">BackPack</button></a>
 	</div>
 
 	<div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
 		<button id="b" onclick="random();"> Roll Die 1 </button>
 		<button id="b2" onclick="random2();"> Roll Die 2 </button>
-		<p><span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span></p>
+		<br/>
+		<span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span>
+		<br/>
+		<br/>
 		<button id="b3" onclick="reset();"> Reset Die </button>
 	</div>
 
