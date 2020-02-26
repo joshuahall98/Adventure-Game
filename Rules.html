@@ -29,7 +29,9 @@
 </head>
 <body class="divbod">
 
-<div >
+
+
+<div style="padding-left: 10%; padding-right: 10%">
 	<h1 >Introduction </h1>
 
 	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a><br/>
@@ -48,7 +50,7 @@
 	<b>Notepad:</b> Found in the bottom left corner, this helpful tool allows you to take notes as you play to remember helpful tips you may be given. <br/>
 	Give it a try! Press the notepad button and type in the input bar 'Don't trust the squirrel!'.<br/>
 	<b>Map:</b> Found in the bottom left corner, this button will take you to 'Sketch.io' where you can draw and save a map so you can keep track of where you have been for future playthroughs.<br/>
-	<b>BackPack:</b> Found in the bottom left corner, when you are given items you can keep track of them here.<br/>
+	<b>Backpack:</b> Found in the bottom left corner, when you are given items you can keep track of them here.<br/>
 	<b>Stats:</b> Found in the bottom right corner, this tab keeps track of your current playe stats. Watch that health!<br/>
 	<b>Dice:</b>The dice are used frequently throughout the story and will always be found in the top left corner, you roll the dice then type your outcome into the input fields(if a player wishes to cheat they ruin the experience by their own choice, we get it, you're bad at the game kid!). <br/>
 	Try it out by rolling the dice and filling in your player stats!
@@ -56,21 +58,21 @@
 
 	<form>
 		<span style="font-weight: bold; font-size: 20px;">Player Attack:
-		<input type="text" id="PATK" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PATK" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
 		<br/>
 		<br/>
 		Player Health: 
-		<input type="text" id="PHP" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<input type="text" id="PHP2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)">
+		<input type="text" id="PHP" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PHP2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)">
 		<br/>
 		<br/>
 		Player Luck:
-		<input type="text" id="PLCK" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PLCK" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
 		<br/>
 		<br/>
 		Player Skill:
-		<input type="text" id="PSKL" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)"></span>
+		<input type="text" id="PSKL" onkeypress="isInputNumber(event)"maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)"></span>
 	</form>
 	<br/>
 	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill(), document.getElementById('begin').disabled=false;" disabled>Save</button>
@@ -93,7 +95,7 @@
 	<div style="position: fixed;bottom: 0;left: 0;">
 		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
 		<a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
-		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">BackPack</button></a>
+		<a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a>
 	</div>
 
 	<div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
@@ -105,6 +107,7 @@
 		<br/>
 		<button id="b3" onclick="reset();"> Reset Die </button>
 	</div>
+
 
 </div>
 </body>

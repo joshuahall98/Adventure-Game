@@ -6,7 +6,7 @@ function npupdate(){
 
 	// If no existing data, use the value by itself
 	// Otherwise, add the new value to it
-	var data = existing ? existing + (' /// ')+npup : '';
+	var data = existing ? existing + ('*')+npup+('<br/>') : '';
 
 	// Save back to localStorage
 	localStorage.setItem('Edit', data);
