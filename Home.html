@@ -5,89 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 
-<script >
-		
-	function manage() {
-        var bt = document.getElementById('savebtn');
-        var ele = document.getElementsByTagName('input'); 
 
-        // LOOP THROUGH EACH ELEMENT.
-        for (i = 0; i < ele.length; i++) {
-
-            // CHECK THE ELEMENT TYPE.
-            if (ele[i].type == 'text' && ele[i].value == '') {
-                bt.disabled = true;    // Disable the button.
-                return false;
-            }
-            else {
-                bt.disabled = false;   // Enable the button.
-            }
-        }
-    }
-
-</script>
 </head>
-<body>
+<body class="divbod">
 
-<div class="divbod">
-	<h1 >Introduction </h1>
-	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a></p>
-	<h1 >Rules</h1>
-	<p >
-	First roll the die to set your player stats <br/>
-	<b>Attack:</b> <br/>
-	<b>Health:</b> <br/>
-	<b>Luck:</b> <br/>
-	<b>Skill:</b> <br/>
-	<b>Combat:</b> roll die twice, add onto attack amount, higher number wins round, loser deduct 2 points from health, combat ends when user dies.<br/>
-	<b>Skill:</b> Can be increased or decreased in game, stat needed to do challenges/use weapons.<br/>
-	<b>Luck:</b> Roll both die, if number is less than or equal to luck stat: you are lucky, if above: you are unlucky, after every positive lucky situation reuce luck stat by 1
-	</p>
-	<form>
-		Player Attack:
-		<input type="text" id="PATK" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<br/>
-		<br/>
-		Player Health: 
-		<input type="text" id="PHP" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<input type="text" id="PHP2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)">
-		<br/>
-		<br/>
-		Player Luck:
-		<input type="text" id="PLCK" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<br/>
-		<br/>
-		Player Skill:
-		<input type="text" id="PSKL" onkeypress="isInputNumber(event)" placeholder="Die 1 roll" onchange="manage(this)">
-		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" placeholder="Die 2 roll" onchange="manage(this)">
-	</form>
-	<br/>
-	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill()" disabled>Save</button>
-	<br/>
-	<br/>
-
-	<button id="b" onclick="random();"> Roll Die 1 </button>
-	<button id="b2" onclick="random2();"> Roll Die 2 </button>
-	<p ><span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span></p>
-	<button id="b3" onclick="reset();"> Reset Die </button>
-	<br/>
-	<br/>
-
-	<p style="text-align: right"><b>Player Attack: <span id="message"></span></b></p>
-	<p style="text-align: right"><b>Player Health: <span id="message2"></span></b></p>
-	<p style="text-align: right"><b>Player Luck: <span id="message3"></span></b></p>
-	<p style="text-align: right"><b>Player Skill: <span id="message4"></span></b></p>
-
-	<input type="button" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;">
-		<br/>
-		<br/>
-	<div style="position: fixed;top: 0;right: 0;">
-		<a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a>
-	</div>
-
-	<br/>
-	<br/>
-
+<div >
+	<h1>Quest for the Lost King</h1>
+	<input type="button" onclick="location.href='Rules.html', newgame()" value="New Game" style="height: 50px; width: 150px;">
 </div>
 </body>
 

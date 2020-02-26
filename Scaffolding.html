@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adventure Game Rules</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+
+<script >
+		
+	function manage() {
+        var bt = document.getElementById('savebtn');
+        var ele = document.getElementsByTagName('input'); 
+
+        // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].type == 'text' && ele[i].value == '') {
+                bt.disabled = true;    // Disable the button.
+                return false;
+            }
+            else {
+                bt.disabled = false;   // Enable the button.
+            }
+        }
+    }
+
+</script>
+</head>
+<body class="divbod">
+
+<div >
+	
+
+</div>
+</body>
+
+
+</html>

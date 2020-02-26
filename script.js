@@ -97,19 +97,6 @@ function stats(){
 }
 window.onload=stats;
 
-function saveNP(){
-	var np = document.getElementById("npad").value;
-	
-	
-	localStorage.setItem("Edit", np);
-
-	var npp = localStorage.getItem("Edit");
-
-	document.getElementById("writing").innerHTML = (npp)
-
-
-}
-
 
 
 function npdata(){
@@ -140,4 +127,11 @@ function npupdate(){
 
 function resetForm(){
 	document.getElementById("npadForm").reset();
+}
+
+
+function newgame(){
+	localStorage.clear();
+	var empty = " ";
+	localStorage.setItem("Edit", empty);
 }

@@ -5,16 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 </head>
-<body>
+<body class="notepaddiv">
 
-<div class="notepaddiv" style="height: 2480px">
+<div >
 	
 	<form id="npadForm">
 		<h1 >Take notes for adventuring</h1>
-		<b>*The notepad is pen and paper and due to this overwriting data destroys all existing data, updating data will result in new notes being added*</b> <br/><br/>
+		<h2><b>*The notepad is pen and paper and due to this written notes cannot be removed*</b></h2> 
 		<input type="text" id="npad" style="width: 80%;"><br/><br/>
-		<button type="button" id="savenp" onclick="saveNP(), resetForm()" style="height: 50px; width: 200px;">Save Initial Note / <br/>Overwrite Notepad</button>
-		<button type="button" id="updatenp" onclick="npupdate(), resetForm()" style="height: 50px; width: 100px;">Add New Notes</button>
+		<button type="button" id="updatenp" onclick="npupdate(), resetForm()" style="height: 50px; width: 100px;">Add Note</button>
 		<p id="writing"></p>
 	</form>
 
