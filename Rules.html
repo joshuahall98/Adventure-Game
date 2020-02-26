@@ -5,27 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 
-<script >
-		
-	function manage() {
-        var bt = document.getElementById('savebtn');
-        var ele = document.getElementsByTagName('input'); 
 
-        // LOOP THROUGH EACH ELEMENT.
-        for (i = 0; i < ele.length; i++) {
-
-            // CHECK THE ELEMENT TYPE.
-            if (ele[i].type == 'text' && ele[i].value == '') {
-                bt.disabled = true;    // Disable the button.
-                return false;
-            }
-            else {
-                bt.disabled = false;   // Enable the button.
-            }
-        }
-    }
-
-</script>
 </head>
 <body class="divbod">
 
@@ -44,7 +24,7 @@
 	<b>Below is all the information you will need to play the game</b><br/>
 	<b>Attack:</b> This stat is the players combat strength and overall strength, used in combat and to complete strength based tasks, can be increased and decreased temporarily.<br/>
 	<b>Health:</b> This is a players health points, when this reaches 0 the game is over, health can be both increased(food, potions etc) or decreased(combat, hazards etc). <br/>
-	<b>Luck:</b> Used in situations that require luck, when these situations occur, roll both the dice, if the sum of both dice is equal to or lower than your current luck stat you have been lucky, if the sum is higher then you are unlucky. On the completion of a succesful luck situation your current luck stat will reduce by 1(you can't always be lucky!). <br/>
+	<b>Luck:</b> Used in situations that require luck, when these situations occur, roll both the dice, if the sum of both dice is equal to or lower than your current luck stat you have been lucky, if the sum is higher then you are unlucky. On the completion of a succesful luck situation your current luck stat will reduce by 1(you can't always be lucky!). Luck can be increased(luck potions, praying at shrine etc)<br/>
 	<b>Skill:</b> The skill stat decides what weapons you can use and can help a player through skill based situations, this stat can be increased(training, potions etc).<br/>
 	<b>Combat:</b> Combat will be frequent throughout this game, when placed in a combat situation it plays out similarly almost everytime(Unless specific changes are stated in the combat dialogue).<br/>
 	<b>Notepad:</b> Found in the bottom left corner, this helpful tool allows you to take notes as you play to remember helpful tips you may be given. <br/>
@@ -71,7 +51,7 @@
 		<br/>
 		<br/>
 		Player Skill:
-		<input type="text" id="PSKL" onkeypress="isInputNumber(event)"maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+		<input type="text" id="PSKL" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
 		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)"></span>
 	</form>
 	<br/>
@@ -81,7 +61,7 @@
 
 
 	<input type="button" id="begin" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;" disabled="true">
-
+	
 	
 	<!-- ALL 4 KIT OPTIONS -->
 
@@ -108,9 +88,39 @@
 		<button id="b3" onclick="reset();"> Reset Die </button>
 	</div>
 
+	<div style="position: fixed;top: 0;right: 0;">
+        <button style="height: 50px; width: 150px;">Take Potion</button><br/>
+        <button style="height: 50px; width: 150px;">Eat Food</button>
+        
+        <div style="background-color: #ADD8E6; font-size: 20px;">
+        	<b>Potions: </b><br/>
+        	<b>Food: </b>
+        </div>
+    </div>
 
 </div>
 </body>
+<script >
+		
+	function manage() {
+        var bt = document.getElementById('savebtn');
+        var ele = document.getElementsByTagName('input'); 
 
+        // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].type == 'text' && ele[i].value == '') {
+                bt.disabled = true;    // Disable the button.
+                return false;
+            }
+            else {
+                bt.disabled = false;   // Enable the button.
+            }
+        }
+    }
+ 
+
+</script>
 
 </html>
