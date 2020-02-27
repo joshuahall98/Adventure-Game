@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quest for the Lost King's Sword</title>
+	<link rel="stylesheet" type="text/css" href="style.css" >
+	
+
+</head>
+<body class="divbod">
+
+<div >
+	<h1 style="padding-top: 20%; font-family: ">Quest for the Lost King's Sword</h1>
+
+	<a href="Rules.html"><button type="button" id="newGame" style="height: 50px; width: 150px;" onclick="newgame()">New Game</button></a>
+	<button type="button" id="LoadGame" style="height: 50px; width: 150px;" onclick="loadGame()">Load Game</button>
+
+</div>
+</body>
+<script>
+	function newgame(){
+		localStorage.clear();
+		var empty = " ";
+		var initial = 0;
+		localStorage.setItem("Edit", empty);
+		localStorage.setItem("bpEdit", empty);
+		localStorage.setItem("Rations", initial);
+		localStorage.setItem("Potions", initial);
+		localStorage.setItem("Gold", initial);
+		localStorage.setItem("Attack", initial);
+		localStorage.setItem("Health", initial);
+		localStorage.setItem("Luck", initial);
+		localStorage.setItem("Skill", initial);
+		localStorage.setItem("Save", empty);
+	}
+
+	function loadGame(){
+		var load = localStorage.getItem("Save");
+
+		if(load == "Page1"){
+			window.open("Page_1.html");
+			window.close("StartGame.html");
+		}
+		else if(load == "Page2"){
+			window.open("Page_2.html");
+			window.close("StartGame.html");
+		}
+		else{
+			window.open("StartGame.html");
+			window.close("StartGame.html");
+		}
+
+
+	}
+</script>
+
+</html>

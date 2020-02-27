@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page 1</title>
+	<title>Quest for the Lost King's Sword</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 </head>
 <body class="divbod">
 
-<div >
+<div id="divmain">
 	<h1>Story Background</h1>
 
-	<p>At the base of a giant mountain, surrounded by forest and fields stands a small village, it is here where are story begins. Three days ago news reached the village that the whereabouts of the crypt that held the Lost King's Sword had been found, but not the sword itself. Legend says that the wielder of the sword be given the power to rule over the land of Vanyeuor. The sword had been lost over three hundred years ago and since then no king has ruled, the lands have become a dangerous place and are overun with villainous characters who are exploiting those of lesser power than they. <br/>
-	Our protagonist in this story is a young man, who only recently reached manhood. His great grandfather used to tell him stories about the times when kings ruled, always reminding him that his great grandfather was the one who bestowed these stories upon him. When are young protagonist heard the news about the sword, he decided it was time to bring back the old ways. It took him the three days to pack all his essentials
+	<p>At the base of a giant mountain, surrounded by forest and fields, in the country of Vanyeuor, stands a small village, it is here where are story begins. Three days ago news reached the village that the whereabouts of the crypt that held the Lost King's Sword had been found, but not the sword itself. Legend says that the wielder of the sword be given the power to rule over the land, the power of the old Kings. The sword had been lost over three hundred years ago and since then no king has ruled over Vanyeuor, the lands have become a dangerous place and are overun with villainous beings who are exploiting those of lesser power than they. If they were to get their hands on the sword a new era of evil would commence...</p>
+    <p>
+	Our protagonist in this story is a young man by the name of Jan'kin, who only recently reached manhood. His great grandfather used to tell him stories about the times when kings ruled, always reminding Jan'kin that his great grandfather was the one who bestowed these stories upon him. When are young protagonist heard the news about the sword, he decided he was going to be the one to bring back the old ways. It took him the three days to plan his trip, to pack all his essentials (Rations <button id="stockRations" type="button" onclick="this.disabled=true; stockR1()">Stock Rations</button>, Flint and Steel, Wood Cutter's Axe, Spare Clothes and a purse full of gold <button id="storeGold" type="button" onclick="this.disabled=true; storeGold1()">Store Gold</button> <u>*Test out your Backpack by adding these items*</u>) and to say goodbye to family and friends, because his return was unlikely. Before he set out his great grandfather bestowed upon him a gift he believed would help Jan'kin on his journey. It was a backpack he had won from a bet with a travelling merchant, the bag was a prized possession of his because it was imbued with magic, making the bag weightless and seemingly bottomless. Ready to set out on his adventure Jan'kin stood on the edge of the village, it is here that YOU the player take control of this story...
 	 </p>
 
-    <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;">
-        <b><span style="font-size: 20px;">Player Attack: <span id="message1.1"></span></span></b><br/>
-        <b><span style="font-size: 20px;">Player Health: <span id="message2.1"></span></span></b><br/>
-        <b><span style="font-size: 20px;">Player Luck: <span id="message3.1"></span></span></b><br/>
-        <b><span style="font-size: 20px;">Player Skill: <span id="message4.1"></span></span></b>
+    
+     <a href="Page_2.html"><button type="button" id="continue" style="height: 50px; width: 150px;">Continue</button></a>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <button type="button" id="SaveGame1" style="height: 50px; width: 150px;" onclick="saveGame1(), this.disabled=true;">Save Game</button>
+
+     <!-- ALL KIT OPTIONS -->
+     <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
+        <b><span >Player Attack: <span id="attackStat"></span></span></b><br/>
+        <b><span >Player Health: <span id="healthStat"></span></span></b><br/>
+        <b><span >Player Luck: <span id="luckStat"></span></span></b><br/>
+        <b><span >Player Skill: <span id="skillStat"></span></span></b>
     </div>
 
-    <div style="position: fixed;bottom: 0;left: 0;">
+   <div style="position: fixed;bottom: 0;left: 0;">
         <a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
         <a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
-        <a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a>
+        <a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a><br/>
+        <a href="RuleBook.html" target="_blank"><button style="height: 50px; width: 150px;">RuleBook</button></a>
     </div>
 
     <div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
@@ -37,7 +48,16 @@
         <button id="b3" onclick="reset();"> Reset Die </button>
     </div>
 	
-
+    <div style="position: fixed;top: 0;right: 0;">
+        <button style="height: 50px; width: 150px;" disabled="true">Take Potion</button><br/>
+        <button style="height: 50px; width: 150px;" onclick="eatRation()">Eat Ration</button>
+        
+        <div style="background-color: #ADD8E6; font-size: 20px;">
+            <b>Potions: <span id="PotionsP"></span></b><br/>
+            <b>Rations: <span id="RationsP"></span></b><br/>
+            <b>Gold: <span id="GoldP"></span></b>
+        </div>
+    </div>
 
 
 </div>

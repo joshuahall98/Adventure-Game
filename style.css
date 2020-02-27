@@ -48,6 +48,12 @@ p{
 	background-size: 100%;
 }
 
+.rulebookdiv{
+	text-align: center;
+	background-image: url('rulebook.jpg');
+	background-size: 100%;
+}
+
 #npadForm{
 	width: 100%;
 	height: 100%;
@@ -64,4 +70,9 @@ p{
 	background-image: url('backpack2.jpg');
 	background-size: 100%;
 
+}
+
+#divmain{
+	padding-left: 10%; 
+	padding-right: 10%
 }

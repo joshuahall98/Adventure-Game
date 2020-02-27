@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rules</title>
+	<title>Quest for the Lost King's Sword</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
 
@@ -11,7 +11,7 @@
 
 
 
-<div style="padding-left: 10%; padding-right: 10%">
+<div id="divmain">
 	<h1 >Introduction </h1>
 
 	<p >Choose your path game based on the novel <a href="https://en.wikipedia.org/wiki/Island_of_the_Lizard_King" target="_blank">'Island of The Lizard King'</a><br/>
@@ -21,17 +21,18 @@
 	<h1 >Rules</h1>
 
 	<p>
-	<b>Below is all the information you will need to play the game</b><br/>
+	<b>Below is all the information you will need to play the game, the rules can be accessed at any point in the game and can be found in the bottom left corner</b><br/>
 	<b>Attack:</b> This stat is the players combat strength and overall strength, used in combat and to complete strength based tasks, can be increased and decreased temporarily.<br/>
 	<b>Health:</b> This is a players health points, when this reaches 0 the game is over, health can be both increased(food, potions etc) or decreased(combat, hazards etc). <br/>
 	<b>Luck:</b> Used in situations that require luck, when these situations occur, roll both the dice, if the sum of both dice is equal to or lower than your current luck stat you have been lucky, if the sum is higher then you are unlucky. On the completion of a succesful luck situation your current luck stat will reduce by 1(you can't always be lucky!). Luck can be increased(luck potions, praying at shrine etc)<br/>
 	<b>Skill:</b> The skill stat decides what weapons you can use and can help a player through skill based situations, this stat can be increased(training, potions etc).<br/>
-	<b>Combat:</b> Combat will be frequent throughout this game, when placed in a combat situation it plays out similarly almost everytime(Unless specific changes are stated in the combat dialogue).<br/>
+	<b>Combat:</b> Combat will be frequent throughout this game, when placed in a combat situation it plays out similarly almost everytime(Unless specific changes are stated in the combat dialogue). Combat starts when a player chooses to fight an enemy, <u>First</u>, the player rolls both dice, this is added onto their attack stat and they submit their score, <u>Second</u>, the player rolls both die, this is added onto the enemies attack stat and they submit the enemies score. The player with the higher attack wins the round and the loser deducts two points from their health. Combat ends when one of the playes health reaches 0.<br/>
 	<b>Notepad:</b> Found in the bottom left corner, this helpful tool allows you to take notes as you play to remember helpful tips you may be given. <br/>
 	Give it a try! Press the notepad button and type in the input bar 'Don't trust the squirrel!'.<br/>
 	<b>Map:</b> Found in the bottom left corner, this button will take you to 'Sketch.io' where you can draw and save a map so you can keep track of where you have been for future playthroughs.<br/>
 	<b>Backpack:</b> Found in the bottom left corner, when you are given items you can keep track of them here.<br/>
 	<b>Stats:</b> Found in the bottom right corner, this tab keeps track of your current playe stats. Watch that health!<br/>
+	<b>Rations/Potions:</b> These are found in the top right corner and these are called active items, they should only be used if you are in possession of these items (I'm looking at you cheaters!). <u>Rations</u> can only be eaten outside of combat and restore 2 health, if cooked they can restore 3 health. <u>Potions</u> These can only be used in combat and only once per fight, they restore 5 health.<br/>
 	<b>Dice:</b>The dice are used frequently throughout the story and will always be found in the top left corner, you roll the dice then type your outcome into the input fields(if a player wishes to cheat they ruin the experience by their own choice, we get it, you're bad at the game kid!). <br/>
 	Try it out by rolling the dice and filling in your player stats!
 	</p>
@@ -55,27 +56,26 @@
 		<input type="text" id="PSKL2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)"></span>
 	</form>
 	<br/>
-	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill(), document.getElementById('begin').disabled=false;" disabled>Save</button>
-	<br/>
+	<button type="button" id="savebtn" onclick="setAttack(), setHealth(), setLuck(), setSkill(), document.getElementById('begin').disabled=false;" disabled>Save</button>	<br/>
 	<br/>
 
 
 	<input type="button" id="begin" onclick="location.href='Page_1.html'" value="Begin Adventure" style="height: 50px; width: 150px;" disabled="true">
 	
 	
-	<!-- ALL 4 KIT OPTIONS -->
-
-	<div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;">
-		<b><span style="font-size: 20px;">Player Attack: <span id="message"></span></span></b><br/>
-		<b><span style="font-size: 20px;">Player Health: <span id="message2"></span></span></b><br/>
-		<b><span style="font-size: 20px;">Player Luck: <span id="message3"></span></span></b><br/>
-		<b><span style="font-size: 20px;">Player Skill: <span id="message4"></span></span></b>
-	</div>
+	<!-- ALL KIT OPTIONS -->
+	 <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
+        <b><span >Player Attack: <span id="attackStat"></span></span></b><br/>
+        <b><span >Player Health: <span id="healthStat"></span></span></b><br/>
+        <b><span >Player Luck: <span id="luckStat"></span></span></b><br/>
+        <b><span >Player Skill: <span id="skillStat"></span></span></b>
+    </div>
 
 	<div style="position: fixed;bottom: 0;left: 0;">
 		<a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
 		<a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
-		<a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a>
+		<a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a><br/>
+		<a href="RuleBook.html" target="_blank"><button style="height: 50px; width: 150px;">RuleBook</button></a>
 	</div>
 
 	<div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
@@ -89,12 +89,13 @@
 	</div>
 
 	<div style="position: fixed;top: 0;right: 0;">
-        <button style="height: 50px; width: 150px;">Take Potion</button><br/>
-        <button style="height: 50px; width: 150px;">Eat Food</button>
+        <button style="height: 50px; width: 150px;" disabled="true">Take Potion</button><br/>
+        <button style="height: 50px; width: 150px;" disabled="true">Eat Ration</button>
         
         <div style="background-color: #ADD8E6; font-size: 20px;">
-        	<b>Potions: </b><br/>
-        	<b>Food: </b>
+            <b>Potions: <span id="PotionsP"></span></b><br/>
+            <b>Rations: <span id="RationsP"></span></b><br/>
+            <b>Gold: <span id="GoldP"></span></b>
         </div>
     </div>
 
