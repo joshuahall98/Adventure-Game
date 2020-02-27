@@ -171,3 +171,24 @@ function saveGame4(){
 	window.open("StartGame.html");
 	window.close("Page_4.html");
 }
+
+function saveGame5(){
+	var saveInfo = "Page5";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_5.html");
+}
+
+function saveGame6(){
+	var saveInfo = "Page6";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_6.html");
+}
+
+function saveGame7(){
+	var saveInfo = "Page7";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_7.html");
+}
