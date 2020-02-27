@@ -143,6 +143,7 @@ function drinkPotion(){
 	document.getElementById("healthStat").innerHTML = (newHealth);
 }
 
+
 //save game function
 function saveGame1(){
 	var saveInfo = "Page1";
@@ -192,3 +193,17 @@ function saveGame7(){
 	window.open("StartGame.html");
 	window.close("Page_7.html");
 }
+
+function saveGame8(){
+	var saveInfo = "Page8";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_8.html");
+}
+
+// function saveGame9(){
+// 	var saveInfo = "Page9";
+// 	localStorage.setItem("Save", saveInfo);
+// 	window.open("StartGame.html");
+// 	window.close("Page_9.html");
+// }

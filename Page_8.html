@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quest for the Lost King's Sword</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+
+
+</head>
+<body class="divbod">
+<div id="divmain">
+
+    <h1>Give the Boy 5 Gold</h1>
+
+    <p>You tell the boy you'll comply with his demands, but you'll only give him 5 gold. The boy takes your offer greedily and runs off with the gold. You feel slightly better, hoping the gold will help the poor orphan boy buy some food. You continue on down the road to the village.</p>
+
+    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <button type="button" id="SaveGame8" style="height: 50px; width: 150px;" onclick="saveGame8(), this.disabled=true;" >Save Game</button>    
+
+    <!-- ALL KIT OPTIONS -->
+
+   <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
+        <b><span >Player Attack: <span id="attackStat"></span></span></b><br/>
+        <b><span >Player Health: <span id="healthStat"></span></span></b><br/>
+        <b><span >Player Luck: <span id="luckStat"></span></span></b><br/>
+        <b><span >Player Skill: <span id="skillStat"></span></span></b>
+    </div>
+
+    <div style="position: fixed;bottom: 0;left: 0;">
+        <a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
+        <a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
+        <a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a><br/>
+        <a href="RuleBook.html" target="_blank"><button style="height: 50px; width: 150px;">RuleBook</button></a>
+    </div>
+
+    <div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
+        <button id="b" onclick="random();"> Roll Die 1 </button>
+        <button id="b2" onclick="random2();"> Roll Die 2 </button>
+        <br/>
+        <span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span>
+        <br/>
+        <br/>
+        <button id="b3" onclick="reset();"> Reset Die </button>
+    </div>
+
+   <div style="position: fixed;top: 0;right: 0;">
+        <button style="height: 50px; width: 150px;" disabled="true" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
+        <button style="height: 50px; width: 150px;" onclick="eatRation()">Eat Ration</button>
+        
+        <div style="background-color: #ADD8E6; font-size: 20px;">
+            <b>Potions: <span id="PotionsP"></span></b><br/>
+            <b>Rations: <span id="RationsP"></span></b><br/>
+            <b>Gold: <span id="GoldP"></span></b>
+        </div>
+    </div>
+    
+</div>
+</body>
+
+
+</html>

@@ -31,6 +31,10 @@
 		localStorage.setItem("Luck", initial);
 		localStorage.setItem("Skill", initial);
 		localStorage.setItem("Save", empty);
+		localStorage.setItem("BoyAttack", "3");
+		localStorage.setItem("BoyHealth", "2");
+		localStorage.setItem("PCombatAttack", initial);
+		localStorage.setItem("ECombatAttack", initial);
 	}
 
 	function loadGame(){
@@ -62,6 +66,10 @@
 		}
 		else if(load == "Page7"){
 			window.open("Page_7.html");
+			window.close("StartGame.html");
+		}
+		else if(load == "Page8"){
+			window.open("Page_8.html");
 			window.close("StartGame.html");
 		}
 		else{

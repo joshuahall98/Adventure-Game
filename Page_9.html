@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quest for the Lost King's Sword</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <script src="script.js"></script> -->
+
+
+</head>
+<body class="divbod">
+<div id="divmain">
+
+    <h1>Fight the Boy</h1>
+
+    <p>Boy Attack: <span id="boyAttack"></span><br/>
+    Boy Health: <span id="boyHealth"></span></p>
+
+    <form id="bpadForm">
+        <span style="font-weight: bold; font-size: 20px;">
+        Player Attack: 
+        <input type="text" id="PA" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+        <input type="text" id="PA2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)">
+        <br/>
+        <br/>
+        Enemy Attack:
+        <input type="text" id="EA" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+        <input type="text" id="EA2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)"></span>
+    </form>
+    
+
+    <p>Player Attack: <span id="PAstat"></span> <br/>
+    Enemy Attack: <span id="EAstat"></span></p>
+
+    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), attackFin(), this.disabled=true;" disabled>Submit Attacks</button>
+    <br/>
+    <br/>
+
+    <button type="button" id="fight" onclick="combat(), resetForm(), this.disabled=true;" disabled="true">Take Damage</button>
+    <br/>
+    <br/>
+
+
+    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
+     <br/>
+     <br/>
+     <br/>
+     <br/>
+     <button type="button" id="" style="height: 50px; width: 150px;" onclick="saveGame1(), this.disabled=true;" disabled="true">Save Game</button>    
+
+    <!-- ALL KIT OPTIONS -->
+
+   <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
+        <b><span >Player Attack: <span id="attackStat"></span></span></b><br/>
+        <b><span >Player Health: <span id="healthStat"></span></span></b><br/>
+        <b><span >Player Luck: <span id="luckStat"></span></span></b><br/>
+        <b><span >Player Skill: <span id="skillStat"></span></span></b>
+    </div>
+
+    <div style="position: fixed;bottom: 0;left: 0;">
+        <a href="https://sketch.io/sketchpad/" target="_blank"><button style="height: 50px; width: 150px;">Map</button></a><br/>
+        <a href="Notepad.html" target="_blank"><button style="height: 50px; width: 150px;">Notepad</button></a><br/>
+        <a href="Backpack.html" target="_blank"><button style="height: 50px; width: 150px;">Backpack</button></a><br/>
+        <a href="RuleBook.html" target="_blank"><button style="height: 50px; width: 150px;">RuleBook</button></a>
+    </div>
+
+    <div style="position: fixed;top: 0;left: 0; background-color: #ADD8E6; padding-left: 25px; padding-right: 20px;">
+        <button id="b" onclick="random();"> Roll Die 1 </button>
+        <button id="b2" onclick="random2();"> Roll Die 2 </button>
+        <br/>
+        <span id="number" style="font-size: 20px; padding-right: 20px"></span>&nbsp;<span id="number2" style="font-size: 20px; padding-left: 20px;"></span>
+        <br/>
+        <br/>
+        <button id="b3" onclick="reset();"> Reset Die </button>
+    </div>
+
+   <div style="position: fixed;top: 0;right: 0;">
+        <button style="height: 50px; width: 150px;" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
+        <button style="height: 50px; width: 150px;" disabled="true" onclick="eatRation()">Eat Ration</button>
+        
+        <div style="background-color: #ADD8E6; font-size: 20px;">
+            <b>Potions: <span id="PotionsP"></span></b><br/>
+            <b>Rations: <span id="RationsP"></span></b><br/>
+            <b>Gold: <span id="GoldP"></span></b>
+        </div>
+    </div>
+    
+</div>
+</body>
+<script>
+    function manage() {
+        var bt = document.getElementById('savebtn');
+        var ele = document.getElementsByTagName('input'); 
+
+        // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].type == 'text' && ele[i].value == '') {
+                bt.disabled = true;    // Disable the button.
+                return false;
+            }
+            else {
+                bt.disabled = false;   // Enable the button.
+            }
+        }
+    }
+
+    //Rolling dice function
+    function random(){
+        document.getElementById("number").innerHTML = Math.floor(Math.random() * 6) +1;
+        document.getElementById("b").disabled = true;
+    }
+
+    function random2(){
+        document.getElementById("number2").innerHTML = Math.floor(Math.random() * 6) +1;
+        document.getElementById("b2").disabled = true;
+    }
+
+    function reset(){
+        document.getElementById("number").innerHTML = "";
+        document.getElementById("number2").innerHTML = "";
+        document.getElementById("b").disabled = false;
+        document.getElementById("b2").disabled = false;
+    }
+
+    //stats
+    function stats(){
+        var patk = localStorage.getItem("Attack");
+        document.getElementById("attackStat").innerHTML = (patk);
+        var php = localStorage.getItem("Health");
+        document.getElementById("healthStat").innerHTML = (php);
+        var plck = localStorage.getItem("Luck");
+        document.getElementById("luckStat").innerHTML = (plck);
+        var pskl = localStorage.getItem("Skill");
+        document.getElementById("skillStat").innerHTML = (pskl);
+        var rations1 = localStorage.getItem("Rations");
+        document.getElementById("RationsP").innerHTML = (rations1);
+        var potions1 = localStorage.getItem("Potions");
+        document.getElementById("PotionsP").innerHTML = (potions1);
+        var gold1 = localStorage.getItem("Gold");
+        document.getElementById("GoldP").innerHTML = (gold1);
+        var eatk = localStorage.getItem("BoyAttack");
+        document.getElementById("boyAttack").innerHTML = (eatk);
+        var ehp = localStorage.getItem("BoyHealth");
+        document.getElementById("boyHealth").innerHTML = (ehp);
+    }
+    window.onload=stats;
+
+    //Eat ration button
+    function eatRation(){
+        var ration = parseInt(localStorage.getItem("Rations"));
+        var newRation = (ration - 1);
+        localStorage.setItem("Rations", newRation);
+        document.getElementById("RationsP").innerHTML = (newRation);
+
+        var health = parseInt(localStorage.getItem("Health"));
+        var newHealth = (health + 2);
+        localStorage.setItem("Health", newHealth);
+        document.getElementById("healthStat").innerHTML = (newHealth);
+    }
+
+    //take potions
+    function drinkPotion(){
+        var potion = parseInt(localStorage.getItem("Potions"));
+        var newPotion = (potion - 1);
+        localStorage.setItem("Potion", newPotion);
+        document.getElementById("PotionsP").innerHTML = (newPotion);
+
+        var health = parseInt(localStorage.getItem("Health"));
+        var newHealth = (health + 5);
+        localStorage.setItem("Health", newHealth);
+        document.getElementById("healthStat").innerHTML = (newHealth);
+    }
+
+    //Combat 
+    function setPAttack(){
+        var x = parseInt(document.getElementById("PA").value);
+        var xx = parseInt(document.getElementById("PA2").value);
+        var xxx = parseInt(localStorage.getItem("Attack"));
+        var xxxx = (x + xx + xxx)
+        document.getElementById("PAstat").innerHTML = (xxxx);
+
+        localStorage.setItem("PCombatAttack", xxxx);
+    }
+
+    function setEAttack(){
+        var x = parseInt(document.getElementById("EA").value);
+        var xx = parseInt(document.getElementById("EA2").value);
+        var xxx = parseInt(localStorage.getItem("BoyAttack"));
+        var xxxx = (x + xx + xxx)
+        document.getElementById("EAstat").innerHTML = (xxxx);
+
+        localStorage.setItem("ECombatAttack", xxxx);
+    }
+
+    function combat(){
+        var x = parseInt(localStorage.getItem("PCombatAttack"));
+        var xx = parseInt(localStorage.getItem("ECombatAttack"));
+
+        if(x > xx){
+             var z = parseInt(localStorage.getItem("BoyHealth"));
+            var zz = (z - 2);
+            localStorage.setItem("BoyHealth", zz);
+            document.getElementById("boyHealth").innerHTML = (zz);
+        }
+        else if(xx > x){
+            var y = parseInt(localStorage.getItem("Health"));
+            var yy = (y - 2);
+            localStorage.setItem("Health", yy);
+            document.getElementById("healthStat").innerHTML = (yy);
+        }
+        else if(x = xx){
+            var xy = parseInt(localStorage.getItem("Health"));
+            var xyy = (xy - 2);
+            localStorage.setItem("Health", xyy);
+            document.getElementById("healthStat").innerHTML = (xyy);
+
+            var xz = parseInt(localStorage.getItem("BoyHealth"));
+            var xzz = (xz - 2);
+            localStorage.setItem("BoyHealth", xzz);
+            document.getElementById("boyHealth").innerHTML = (xzz);
+        }
+    }
+    function isInputNumber(evt){
+
+        var ch = String.fromCharCode(evt.which);
+
+        if(!(/[0-9]/.test(ch))){
+            evt.preventDefault();
+        }
+    }
+
+    function attackFin(){
+        document.getElementById("fight").disabled = false;
+    }
+
+    function resetForm(){
+        document.getElementById("bpadForm").reset();
+    }
+
+    //save game
+    function saveGame9(){
+        var saveInfo = "Page9";
+        localStorage.setItem("Save", saveInfo);
+        window.open("StartGame.html");
+        window.close("Page_9.html");
+    }
+    
+</script>
+
+</html>
