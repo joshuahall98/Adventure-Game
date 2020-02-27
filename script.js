@@ -110,6 +110,13 @@ function storeGold1(){
 	document.getElementById("GoldP").innerHTML = (gold1);
 }
 
+function storeGold2(){
+	var gold = parseInt(localStorage.getItem("Gold"));
+	var newGold = (gold + 1);
+	localStorage.setItem("Gold", newGold);
+	document.getElementById("GoldP").innerHTML = (newGold)
+}
+
 //Eat ration button
 function eatRation(){
 	var ration = parseInt(localStorage.getItem("Rations"));
@@ -123,6 +130,18 @@ function eatRation(){
 	document.getElementById("healthStat").innerHTML = (newHealth);
 }
 
+//take potions
+function drinkPotion(){
+	var potion = parseInt(localStorage.getItem("Potions"));
+	var newPotion = (potion - 1);
+	localStorage.setItem("Potion", newPotion);
+	document.getElementById("PotionsP").innerHTML = (newPotion);
+
+	var health = parseInt(localStorage.getItem("Health"));
+	var newHealth = (health + 5);
+	localStorage.setItem("Health", newHealth);
+	document.getElementById("healthStat").innerHTML = (newHealth);
+}
 
 //save game function
 function saveGame1(){
@@ -139,5 +158,16 @@ function saveGame2(){
 	window.close("Page_2.html");
 }
 
+function saveGame3(){
+	var saveInfo = "Page3";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_3.html");
+}
 
-
+function saveGame4(){
+	var saveInfo = "Page4";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_4.html");
+}
