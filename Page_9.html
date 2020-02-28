@@ -29,23 +29,22 @@
     
 
     <p>Player Attack: <span id="PAstat"></span> <br/>
-    Enemy Attack: <span id="EAstat"></span></p>
-
-    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), attackFin(), this.disabled=true;" disabled>Submit Attacks</button>
+    Enemy Attack: <span id="EAstat"></span><br/>
     <br/>
-    <br/>
+    Round Winner: <span id="winner"></span></p>
 
-    <button type="button" id="fight" onclick="combat(), resetForm(), this.disabled=true;" disabled="true">Take Damage</button>
+    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), combat(), resetForm(), this.disabled=true;" disabled>Submit Attacks</button>
     <br/>
     <br/>
 
+    <p>When the Boy's health reaches 0 press continue</p>
 
     <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="" style="height: 50px; width: 150px;" onclick="saveGame1(), this.disabled=true;" disabled="true">Save Game</button>    
+     <button type="button" id="SaveGame9" style="height: 50px; width: 150px;" onclick="saveGame9() " >Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -198,16 +197,18 @@
         var xx = parseInt(localStorage.getItem("ECombatAttack"));
 
         if(x > xx){
-             var z = parseInt(localStorage.getItem("BoyHealth"));
+            var z = parseInt(localStorage.getItem("BoyHealth"));
             var zz = (z - 2);
             localStorage.setItem("BoyHealth", zz);
             document.getElementById("boyHealth").innerHTML = (zz);
+            document.getElementById("winner").innerHTML = ("Jan'kin");
         }
         else if(xx > x){
             var y = parseInt(localStorage.getItem("Health"));
             var yy = (y - 2);
             localStorage.setItem("Health", yy);
             document.getElementById("healthStat").innerHTML = (yy);
+            document.getElementById("winner").innerHTML = ("The Boy");
         }
         else if(x = xx){
             var xy = parseInt(localStorage.getItem("Health"));
@@ -230,9 +231,9 @@
         }
     }
 
-    function attackFin(){
-        document.getElementById("fight").disabled = false;
-    }
+    // function attackFin(){
+    //     document.getElementById("fight").disabled = false;
+    // }
 
     function resetForm(){
         document.getElementById("bpadForm").reset();
@@ -245,6 +246,7 @@
         window.open("StartGame.html");
         window.close("Page_9.html");
     }
+
     
 </script>
 
