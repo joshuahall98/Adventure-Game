@@ -31,13 +31,11 @@
     <p>Player Attack: <span id="PAstat"></span> <br/>
     Enemy Attack: <span id="EAstat"></span><br/>
     <br/>
-    Round Winner: <span id="winner"></span></p>
+    Round Outcome: <span id="winner"></span></p>
 
     <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), combat(), resetForm(), this.disabled=true;" disabled>Submit Attacks</button>
     <br/>
     <br/>
-
-    <p>When the Boy's health reaches 0 press continue</p>
 
     <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
      <br/>
@@ -49,10 +47,10 @@
     <!-- ALL KIT OPTIONS -->
 
    <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
-        <b><span >Player Attack: <span id="attackStat"></span></span></b><br/>
-        <b><span >Player Health: <span id="healthStat"></span></span></b><br/>
-        <b><span >Player Luck: <span id="luckStat"></span></span></b><br/>
-        <b><span >Player Skill: <span id="skillStat"></span></span></b>
+        <b>Player Attack: <span id="attackStat"></span></b><br/>
+        <b>Player Health: <span id="chealthstat"></span>/<span id="healthStat"></span></b><br/>
+        <b>Player Luck: <span id="luckStat"></span></b><br/>
+        <b>Player Skill: <span id="skillStat"></span></b>
     </div>
 
     <div style="position: fixed;bottom: 0;left: 0;">
@@ -73,8 +71,8 @@
     </div>
 
    <div style="position: fixed;top: 0;right: 0;">
-        <button style="height: 50px; width: 150px;" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
-        <button style="height: 50px; width: 150px;" disabled="true" onclick="eatRation()">Eat Ration</button>
+        <button id="potionB" style="height: 50px; width: 150px;" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
+        <button id="rationB" style="height: 50px; width: 150px;" disabled="true" onclick="eatRation()">Eat Ration</button>
         
         <div style="background-color: #ADD8E6; font-size: 20px;">
             <b>Potions: <span id="PotionsP"></span></b><br/>
@@ -128,6 +126,8 @@
         document.getElementById("attackStat").innerHTML = (patk);
         var php = localStorage.getItem("Health");
         document.getElementById("healthStat").innerHTML = (php);
+        var cphp = localStorage.getItem("CHealth");
+        document.getElementById("chealthstat").innerHTML = (cphp);
         var plck = localStorage.getItem("Luck");
         document.getElementById("luckStat").innerHTML = (plck);
         var pskl = localStorage.getItem("Skill");
@@ -142,33 +142,38 @@
         document.getElementById("boyAttack").innerHTML = (eatk);
         var ehp = localStorage.getItem("BoyHealth");
         document.getElementById("boyHealth").innerHTML = (ehp);
+
+        var empty = 0;
+        
+        if(empty >= potions1){
+            document.getElementById("potionB").disabled = true;
+        }
     }
     window.onload=stats;
 
-    //Eat ration button
-    function eatRation(){
-        var ration = parseInt(localStorage.getItem("Rations"));
-        var newRation = (ration - 1);
-        localStorage.setItem("Rations", newRation);
-        document.getElementById("RationsP").innerHTML = (newRation);
-
-        var health = parseInt(localStorage.getItem("Health"));
-        var newHealth = (health + 2);
-        localStorage.setItem("Health", newHealth);
-        document.getElementById("healthStat").innerHTML = (newHealth);
-    }
 
     //take potions
     function drinkPotion(){
         var potion = parseInt(localStorage.getItem("Potions"));
         var newPotion = (potion - 1);
-        localStorage.setItem("Potion", newPotion);
+        localStorage.setItem("Potions", newPotion);
         document.getElementById("PotionsP").innerHTML = (newPotion);
 
-        var health = parseInt(localStorage.getItem("Health"));
+        var health = parseInt(localStorage.getItem("CHealth"));
         var newHealth = (health + 5);
-        localStorage.setItem("Health", newHealth);
-        document.getElementById("healthStat").innerHTML = (newHealth);
+        localStorage.setItem("CHealth", newHealth);
+
+        var maxhealth = parseInt(localStorage.getItem("Health"));
+        var chealth = parseInt(localStorage.getItem("CHealth"));
+
+        if(chealth > maxhealth){
+            chealth = maxhealth;
+            localStorage.setItem("CHealth", chealth);
+            document.getElementById("chealthstat").innerHTML = (chealth);
+        }
+        else{
+            document.getElementById("chealthstat").innerHTML = (chealth);
+        }
     }
 
     //Combat 
@@ -201,27 +206,51 @@
             var zz = (z - 2);
             localStorage.setItem("BoyHealth", zz);
             document.getElementById("boyHealth").innerHTML = (zz);
-            document.getElementById("winner").innerHTML = ("Jan'kin");
+            document.getElementById("winner").innerHTML = ("Jan'kin attacks");
         }
         else if(xx > x){
-            var y = parseInt(localStorage.getItem("Health"));
+            var y = parseInt(localStorage.getItem("CHealth"));
             var yy = (y - 2);
-            localStorage.setItem("Health", yy);
-            document.getElementById("healthStat").innerHTML = (yy);
-            document.getElementById("winner").innerHTML = ("The Boy");
+            localStorage.setItem("CHealth", yy);
+            document.getElementById("chealthstat").innerHTML = (yy);
+            document.getElementById("winner").innerHTML = ("The Boy attacks");
         }
         else if(x = xx){
-            var xy = parseInt(localStorage.getItem("Health"));
+            var xy = parseInt(localStorage.getItem("CHealth"));
             var xyy = (xy - 2);
-            localStorage.setItem("Health", xyy);
-            document.getElementById("healthStat").innerHTML = (xyy);
+            localStorage.setItem("CHealth", xyy);
+            document.getElementById("chealthstat").innerHTML = (xyy);
 
             var xz = parseInt(localStorage.getItem("BoyHealth"));
             var xzz = (xz - 2);
             localStorage.setItem("BoyHealth", xzz);
             document.getElementById("boyHealth").innerHTML = (xzz);
+
+            document.getElementById("winner").innerHTML = ("Both players take damage");
+        }
+
+        var enemyhealth = parseInt(localStorage.getItem("BoyHealth"));
+        var playerhealth = parseInt(localStorage.getItem("CHealth"));
+        var battleend = 0;
+
+        if(battleend >= enemyhealth){
+            document.getElementById("PA").disabled = true;
+            document.getElementById("PA2").disabled = true;
+            document.getElementById("EA").disabled = true;
+            document.getElementById("EA2").disabled = true;
+            document.getElementById("continue").disabled = false;
+            document.getElementById("winner").innerHTML = ("Jan'kin wins!");
+        }
+        else if(battleend >= playerhealth){
+            var saveInfo = " ";
+            localStorage.setItem("Save", saveInfo);
+            window.open("StartGame.html");
+            window.close("Page_9.html");
         }
     }
+
+    
+
     function isInputNumber(evt){
 
         var ch = String.fromCharCode(evt.which);
@@ -231,9 +260,7 @@
         }
     }
 
-    // function attackFin(){
-    //     document.getElementById("fight").disabled = false;
-    // }
+    
 
     function resetForm(){
         document.getElementById("bpadForm").reset();

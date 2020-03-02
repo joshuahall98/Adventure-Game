@@ -8,50 +8,39 @@
 
 <div >
 	
-	<form id="bpadForm" >
+	
 		<h1 >Backpack for storing equipment</h1>
-		<h2><b>*Your backpack is magical and can carry an unlimited amount of items*</b><br/>
-		*You can search your backpack for key words with 'Ctrl+F'*</h2> 
-		<input type="text" id="bpad" style="width: 80%;" maxlength="150"><br/><br/>
-		<button type="button" id="updatebp" onclick="bpupdate(), resetForm()" style="height: 50px; width: 100px;">Add Note</button>
-	</form>
-	<p id="writing" style="text-align: left;"></p>
+		<h2><b>*Your backpack is magical and can carry an unlimited amount of items*<br/>
+		*If an item is crossed out it means you haven't obtained it yet or you have lost it*<br/>
+		*You can search your backpack for key words with 'Ctrl+F'*</b></h2> 
+		
+		<p id="waxep" style="text-align: left"></p>
+		<p id="flintp" style="text-align: left"></p>
 
 
 </div>
 </body>
 <script>
-	function bpupdate(){
-	// Get the existing data
-	var existing = localStorage.getItem('bpEdit');
 
-	var bpup = document.getElementById("bpad").value;
+function backpack(){
+ 	var waxe = localStorage.getItem("WAxe");
+ 	if(waxe == 0){
+ 		document.getElementById("waxep").innerHTML = ('<del>')+("Wood Cutter's Axe")+('</del>');
+ 	}
+ 	else if(waxe == 1){
+ 		document.getElementById("waxep").innerHTML = ("Wood Cutter's Axe");
+ 	}
 
-	// If no existing data, use the value by itself
-	// Otherwise, add the new value to it
-	var data = existing ? existing + ('*')+bpup+('<br/>') : '';
-
-	// Save back to localStorage
-	localStorage.setItem('bpEdit', data);
-
-	var bppup = localStorage.getItem("bpEdit");
-
-	document.getElementById("writing").innerHTML = (bppup)
-
+ 	var flint = localStorage.getItem("Flint");
+ 	if(flint == 0){
+ 		document.getElementById("flintp").innerHTML = ('<del>')+("Flint")+('</del>');
+ 	}
+ 	else if(waxe == 1){
+ 		document.getElementById("flintp").innerHTML = ("Flint");
+ 	}
 }
+ window.onload=backpack;
 
-function bpdata(){
-	var bp = localStorage.getItem("bpEdit");
-	document.getElementById("writing").innerHTML = (bp);
-		
-}
-window.onload=bpdata;
-
-
-
-function resetForm(){
-	document.getElementById("bpadForm").reset();
-}
 </script>
 
 </html>

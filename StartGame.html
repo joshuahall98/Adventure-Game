@@ -11,7 +11,7 @@
 <div >
 	<h1 style="padding-top: 20%; font-family: ">Quest for the Lost King's Sword</h1>
 
-	<a href="Rules.html"><button type="button" id="newGame" style="height: 50px; width: 150px;" onclick="newgame()">New Game</button></a>
+	<a href="Intro.html"><button type="button" id="newGame" style="height: 50px; width: 150px;" onclick="newgame()">New Game</button></a>
 	<button type="button" id="LoadGame" style="height: 50px; width: 150px;" onclick="loadGame()">Load Game</button>
 
 </div>
@@ -28,6 +28,7 @@
 		localStorage.setItem("Gold", initial);
 		localStorage.setItem("Attack", initial);
 		localStorage.setItem("Health", initial);
+		localStorage.setItem("CHealth", initial);
 		localStorage.setItem("Luck", initial);
 		localStorage.setItem("Skill", initial);
 		localStorage.setItem("Save", empty);
@@ -35,6 +36,8 @@
 		localStorage.setItem("BoyHealth", "2");
 		localStorage.setItem("PCombatAttack", initial);
 		localStorage.setItem("ECombatAttack", initial);
+		localStorage.setItem("WAxe", initial);
+		localStorage.setItem("Flint",  initial);
 	}
 
 	function loadGame(){
