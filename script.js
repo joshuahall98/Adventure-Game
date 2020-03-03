@@ -66,7 +66,7 @@ function stats(){
 }
 window.onload=stats;
 
-//stocking rations and potions and gold
+//Obtaining and losing items
 function stock1(){
 	var rations1 = 5;
     localStorage.setItem("Rations", rations1);
@@ -95,6 +95,17 @@ function loseGold1(){
 	var newGold = (gold - 5);
 	localStorage.setItem("Gold", newGold);
 	document.getElementById("GoldP").innerHTML = (newGold)
+}
+
+function loseItems1(){
+	var gold = 0;
+	localStorage.setItem("Gold", gold);
+	document.getElementById("GoldP").innerHTML = (gold);
+
+	var health = parseInt(localStorage.getItem("CHealth"));
+	var newHealth = health - 1;
+	localStorage.setItem("CHealth", newHealth);
+	document.getElementById("chealthstat").innerHTML = (newHealth);
 }
 	
 
@@ -215,9 +226,16 @@ function saveGame8(){
 	window.close("Page_8.html");
 }
 
-// function saveGame9(){
-// 	var saveInfo = "Page9";
-// 	localStorage.setItem("Save", saveInfo);
-// 	window.open("StartGame.html");
-// 	window.close("Page_9.html");
-// }
+function saveGame9(){
+	var saveInfo = "Page9";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_9.html");
+}
+
+function saveGame10(){
+	var saveInfo = "Page10";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_10.html");
+}

@@ -3,23 +3,46 @@
 <head>
 	<title>Quest for the Lost King's Sword</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="script.js"></script>
+	<!-- <script src="script.js"></script> -->
 
 
 </head>
 <body class="divbod">
 <div id="divmain">
 
-    <h1></h1>
+    <h1>Fight the Boy</h1>
 
-    <p></p>
+    <p>Boy Attack: <span id="boyAttack"></span><br/>
+    Boy Health: <span id="boyHealth"></span></p>
 
-    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
+    <form id="bpadForm">
+        <span style="font-weight: bold; font-size: 20px;">
+        Player Attack: 
+        <input type="text" id="PA" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+        <input type="text" id="PA2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)">
+        <br/>
+        <br/>
+        Enemy Attack:
+        <input type="text" id="EA" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 1 roll" onchange="manage(this)">
+        <input type="text" id="EA2" onkeypress="isInputNumber(event)" maxlength="1" placeholder="Die 2 roll" onchange="manage(this)"></span>
+    </form>
+    
+
+    <p>Player Attack: <span id="PAstat"></span> <br/>
+    Enemy Attack: <span id="EAstat"></span><br/>
+    <br/>
+    Round Outcome: <span id="winner"></span></p>
+
+    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), combat(), resetForm(), this.disabled=true;" disabled>Submit Attacks</button>
+    <br/>
+    <br/>
+
+    <a href="Page_9.html"><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="" style="height: 50px; width: 150px;" onclick="saveGame1()" disabled="true">Save Game</button>    
+     <button type="button" id="SaveGame9" style="height: 50px; width: 150px;" onclick="saveGame9() " >Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -48,7 +71,7 @@
     </div>
 
    <div style="position: fixed;top: 0;right: 0;">
-        <button id="potionB" style="height: 50px; width: 150px;" disabled="true" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
+        <button id="potionB" style="height: 50px; width: 150px;" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
         <button id="rationB" style="height: 50px; width: 150px;" disabled="true" onclick="eatRation()">Eat Ration</button>
         
         <div style="background-color: #ADD8E6; font-size: 20px;">
@@ -60,13 +83,6 @@
     
 </div>
 </body>
-
-
-
-</html>
-
-combat script
-
 <script>
     function manage() {
         var bt = document.getElementById('savebtn');
@@ -274,3 +290,5 @@ combat script
 
     
 </script>
+
+</html>
