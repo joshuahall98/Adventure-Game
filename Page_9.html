@@ -144,8 +144,12 @@
         document.getElementById("boyHealth").innerHTML = (ehp);
 
         var empty = 0;
-        
+
         if(empty >= potions1){
+            document.getElementById("potionB").disabled = true;
+        }
+
+        if(php == cphp){
             document.getElementById("potionB").disabled = true;
         }
     }
@@ -174,6 +178,7 @@
         else{
             document.getElementById("chealthstat").innerHTML = (chealth);
         }
+
     }
 
     //Combat 

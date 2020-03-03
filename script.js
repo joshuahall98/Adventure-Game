@@ -17,72 +17,14 @@ function reset(){
 	document.getElementById("b2").disabled = false;
 }
 
-//Setting stats on rules page
-
-function isInputNumber(evt){
-
-	var ch = String.fromCharCode(evt.which);
-
-	if(!(/[0-9]/.test(ch))){
-		evt.preventDefault();
-	}
-}
-
-
-
-function setAttack(){
-	var x = parseInt(document.getElementById("PATK").value);
-	var xx = 6 + x;
-	document.getElementById("attackStat").innerHTML = xx;
-	document.getElementById("PATK").disabled = true;
-	
-	localStorage.setItem("Attack", xx);
-
-}
-
-
-
-function setHealth(){
-	var y = parseInt(document.getElementById("PHP").value);
-	var yy = parseInt(document.getElementById("PHP2").value);
-	var yyy = 12 + y + yy;
-	document.getElementById("healthStat").innerHTML = (yyy);
-	document.getElementById("PHP").disabled = true;
-	document.getElementById("PHP2").disabled = true;
-
-	localStorage.setItem("Health", yyy);
-
-}
-
-function setLuck(){
-	var z = parseInt(document.getElementById("PLCK").value);
-	var zz = z + 6;
-	document.getElementById("luckStat").innerHTML = (zz);
-	document.getElementById("PLCK").disabled = true;
-
-	localStorage.setItem("Luck", zz);
-
-}
-
-function setSkill(){
-	var w = parseInt(document.getElementById("PSKL").value);
-	var ww = parseInt(document.getElementById("PSKL2").value);
-	var www = w + ww;
-	document.getElementById("skillStat").innerHTML = (www);
-	document.getElementById("PSKL").disabled = true;
-	document.getElementById("PSKL2").disabled = true;
-
-	localStorage.setItem("Skill", www);
-}
-
-
 //viewing stats and actives
-
 function stats(){
 	var patk = localStorage.getItem("Attack");
 	document.getElementById("attackStat").innerHTML = (patk);
 	var php = localStorage.getItem("Health");
 	document.getElementById("healthStat").innerHTML = (php);
+	var cphp = localStorage.getItem("CHealth");
+	document.getElementById("chealthstat").innerHTML = (cphp);
 	var plck = localStorage.getItem("Luck");
 	document.getElementById("luckStat").innerHTML = (plck);
 	var pskl = localStorage.getItem("Skill");
@@ -93,29 +35,68 @@ function stats(){
     document.getElementById("PotionsP").innerHTML = (potions1);
     var gold1 = localStorage.getItem("Gold");
     document.getElementById("GoldP").innerHTML = (gold1);
+
+    var empty = 0;
+    if(empty >= cphp ){
+	    var saveInfo = " ";
+	    localStorage.setItem("Save", saveInfo);
+	    window.open("StartGame.html");
+	    window.close();
+    }
+
+    if(empty >= rations1){
+    	document.getElementById("rationB").disabled = true;
+    }
+    else{
+    	document.getElementById("rationB").disabled = false;
+    }
+
+    if(empty >= potions1){
+    	document.getElementById("potionB").disabled = true;
+    }
+    else{
+    	document.getElementById("potionB").disabled = false;
+    }
+
+    if(php == cphp){
+    	document.getElementById("rationB").disabled = true;
+    	document.getElementById("potionB").disabled = true;
+    }
+    
 }
 window.onload=stats;
 
 //stocking rations and potions and gold
-
-function stockR1(){
+function stock1(){
 	var rations1 = 5;
     localStorage.setItem("Rations", rations1);
     document.getElementById("RationsP").innerHTML = (rations1);
+
+    var gold1 = 30;
+	localStorage.setItem("Gold", gold1);
+	document.getElementById("GoldP").innerHTML = (gold1);
+
+	var waxe = 1;
+	localStorage.setItem("WAxe", waxe);
+
+	var flint = 1;
+	localStorage.setItem("Flint", flint);
 }
 
 function storeGold1(){
-	var gold1 = 30;
-	localStorage.setItem("Gold", gold1);
-	document.getElementById("GoldP").innerHTML = (gold1);
-}
-
-function storeGold2(){
 	var gold = parseInt(localStorage.getItem("Gold"));
 	var newGold = (gold + 1);
 	localStorage.setItem("Gold", newGold);
 	document.getElementById("GoldP").innerHTML = (newGold)
 }
+
+function loseGold1(){
+	var gold = parseInt(localStorage.getItem("Gold"));
+	var newGold = (gold - 5);
+	localStorage.setItem("Gold", newGold);
+	document.getElementById("GoldP").innerHTML = (newGold)
+}
+	
 
 //Eat ration button
 function eatRation(){
@@ -124,23 +105,56 @@ function eatRation(){
 	localStorage.setItem("Rations", newRation);
 	document.getElementById("RationsP").innerHTML = (newRation);
 
-	var health = parseInt(localStorage.getItem("Health"));
+	var health = parseInt(localStorage.getItem("CHealth"));
 	var newHealth = (health + 2);
-	localStorage.setItem("Health", newHealth);
-	document.getElementById("healthStat").innerHTML = (newHealth);
+	localStorage.setItem("CHealth", newHealth);
+	
+
+	var maxhealth = parseInt(localStorage.getItem("Health"));
+	var chealth = parseInt(localStorage.getItem("CHealth"));
+	var empty = 1;
+	
+
+	if(chealth > maxhealth){
+		chealth = maxhealth;
+		localStorage.setItem("CHealth", chealth);
+		document.getElementById("chealthstat").innerHTML = (chealth);
+	}
+	else{
+		document.getElementById("chealthstat").innerHTML = (chealth);
+	}
+
+	if(empty >= ration){
+    	document.getElementById("rationB").disabled = true;
+    }	
+
+    if(chealth == maxhealth){
+    	document.getElementById("rationB").disabled = true;
+    }
 }
 
 //take potions
 function drinkPotion(){
 	var potion = parseInt(localStorage.getItem("Potions"));
 	var newPotion = (potion - 1);
-	localStorage.setItem("Potion", newPotion);
+	localStorage.setItem("Potions", newPotion);
 	document.getElementById("PotionsP").innerHTML = (newPotion);
 
-	var health = parseInt(localStorage.getItem("Health"));
+	var health = parseInt(localStorage.getItem("CHealth"));
 	var newHealth = (health + 5);
-	localStorage.setItem("Health", newHealth);
-	document.getElementById("healthStat").innerHTML = (newHealth);
+	localStorage.setItem("CHealth", newHealth);
+
+	var maxhealth = parseInt(localStorage.getItem("Health"));
+	var chealth = parseInt(localStorage.getItem("CHealth"));
+
+	if(chealth > maxhealth){
+		chealth = maxhealth;
+		localStorage.setItem("CHealth", chealth);
+		document.getElementById("chealthstat").innerHTML = (chealth);
+	}
+	else{
+		document.getElementById("chealthstat").innerHTML = (chealth);
+	}
 }
 
 
