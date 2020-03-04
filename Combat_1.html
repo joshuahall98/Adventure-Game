@@ -33,7 +33,7 @@
     <br/>
     Round Outcome: <span id="winner"></span></p>
 
-    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), combat(), resetForm(), this.disabled=true;" disabled>Submit Attacks</button>
+    <button type="button" id="savebtn" onclick="setPAttack(), setEAttack(), combat(), resetForm(), potionButton(), this.disabled=true;" disabled>Submit Attacks</button>
     <br/>
     <br/>
 
@@ -71,7 +71,7 @@
     </div>
 
    <div style="position: fixed;top: 0;right: 0;">
-        <button id="potionB" style="height: 50px; width: 150px;" onclick="this.disabled=true; drinkPotion()">Take Potion</button><br/>
+        <button id="potionB" style="height: 50px; width: 150px;" onclick="drinkPotion()">Take Potion</button><br/>
         <button id="rationB" style="height: 50px; width: 150px;" disabled="true" onclick="eatRation()">Eat Ration</button>
         
         <div style="background-color: #ADD8E6; font-size: 20px;">
@@ -188,6 +188,15 @@
             document.getElementById("chealthstat").innerHTML = (chealth);
         }
 
+    }
+
+    function potionButton(){
+        var health = parseInt(localStorage.getItem("Health"));
+        var chealth = parseInt(localStorage.getItem("CHealth"));
+
+        if(health > chealth){
+            document.getElementById("potionB").disabled = false;
+        }
     }
 
     //Combat 
