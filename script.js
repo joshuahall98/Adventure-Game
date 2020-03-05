@@ -51,12 +51,6 @@ function stats(){
     	document.getElementById("rationB").disabled = false;
     }
 
-    if(empty >= potions1){
-    	document.getElementById("potionB").disabled = true;
-    }
-    else{
-    	document.getElementById("potionB").disabled = false;
-    }
 
     if(php == cphp){
     	document.getElementById("rationB").disabled = true;
@@ -144,30 +138,6 @@ function eatRation(){
     }
 }
 
-//take potions
-function drinkPotion(){
-	var potion = parseInt(localStorage.getItem("Potions"));
-	var newPotion = (potion - 1);
-	localStorage.setItem("Potions", newPotion);
-	document.getElementById("PotionsP").innerHTML = (newPotion);
-
-	var health = parseInt(localStorage.getItem("CHealth"));
-	var newHealth = (health + 5);
-	localStorage.setItem("CHealth", newHealth);
-
-	var maxhealth = parseInt(localStorage.getItem("Health"));
-	var chealth = parseInt(localStorage.getItem("CHealth"));
-
-	if(chealth > maxhealth){
-		chealth = maxhealth;
-		localStorage.setItem("CHealth", chealth);
-		document.getElementById("chealthstat").innerHTML = (chealth);
-	}
-	else{
-		document.getElementById("chealthstat").innerHTML = (chealth);
-	}
-}
-
 
 //save game function
 function saveGame1(){
@@ -238,4 +208,11 @@ function saveGame10(){
 	localStorage.setItem("Save", saveInfo);
 	window.open("StartGame.html");
 	window.close("Page_10.html");
+}
+
+function saveGame11(){
+	var saveInfo = "Page11";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_11.html");
 }

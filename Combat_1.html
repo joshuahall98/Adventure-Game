@@ -42,7 +42,7 @@
      <br/>
      <br/>
      <br/>
-     <button type="button" id="SaveGame9" style="height: 50px; width: 150px;" onclick="saveGame9() " >Save Game</button>    
+     <button type="button" id="SaveGame9" style="height: 50px; width: 150px;" onclick="saveCombat1() " >Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -290,7 +290,7 @@
     }
 
     //save game
-    function saveGame9(){
+    function saveCombat1(){
         var saveInfo = "Combat1";
         localStorage.setItem("Save", saveInfo);
         window.open("StartGame.html");

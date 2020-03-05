@@ -38,6 +38,9 @@
 		localStorage.setItem("ECombatAttack", initial);
 		localStorage.setItem("WAxe", initial);
 		localStorage.setItem("Flint",  initial);
+		localStorage.setItem("ISword", initial);
+		localStorage.setItem("Rope", initial);
+		localStorage.setItem("IArmour", initial);
 	}
 
 	function loadGame(){
@@ -85,6 +88,14 @@
 		}
 		else if(load == "Page10"){
 			window.open("Page_10.html");
+			window.close("StartGame.html");
+		}
+		else if(load == "Page11"){
+			window.open("Page_11.html");
+			window.close("StartGame.html");
+		}
+		else if(load == "Shop1"){
+			window.open("Shop_1.html");
 			window.close("StartGame.html");
 		}
 		else{
