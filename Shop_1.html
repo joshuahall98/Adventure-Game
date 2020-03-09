@@ -107,6 +107,8 @@ function stats(){
     var gold1 = localStorage.getItem("Gold");
     document.getElementById("GoldP").innerHTML = (gold1);
 
+    var rope1 = localStorage.getItem("Rope");
+
     var empty = 0;
     if(empty >= cphp ){
         var saveInfo = " ";
@@ -130,11 +132,21 @@ function stats(){
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
-       document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+       document.getElementById("buyration").disabled = true;
+    }
+
+     if(rope1 == 1){
+        document.getElementById("buyrope").disabled = true;
+    }
+    else {
+        if(gold1 >= 5){
+            document.getElementById("buyrope").disabled = false;
+        }
+        else{
+           document.getElementById("buyrope").disabled = true; 
+        }
     }
 
     if (gold1 >= 10){

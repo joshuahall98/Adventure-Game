@@ -66,14 +66,25 @@ function buyRation(){
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    var rope1 = parseInt(localStorage.getItem("Rope"));
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
        document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+    }
+
+    if(rope1 == 1){
+        document.getElementById("buyrope").disabled = true;
+    }
+    else {
+        if(gold1 >= 5){
+            document.getElementById("buyrope").disabled = false;
+        }
+        else{
+           document.getElementById("buyrope").disabled = true; 
+        }
     }
 
     if (gold1 >= 10){
@@ -117,15 +128,26 @@ function buyPotion(){
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    var rope1 = parseInt(localStorage.getItem("Rope"));
 
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
        document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+    }
+
+    if(rope1 == 1){
+        document.getElementById("buyrope").disabled = true;
+    }
+    else {
+        if(gold1 >= 5){
+            document.getElementById("buyrope").disabled = false;
+        }
+        else{
+           document.getElementById("buyrope").disabled = true; 
+        }
     }
 
     if (gold1 >= 10){
@@ -160,6 +182,11 @@ function buyISword(){
 	var x = 1;
     localStorage.setItem("ISword", (x));
 
+    var attack = parseInt(localStorage.getItem("Attack"));
+    var newAttack = attack + 1;
+    localStorage.setItem("Attack", newAttack);
+    document.getElementById("attackStat").innerHTML = (newAttack);
+
     var gold = parseInt(localStorage.getItem("Gold"));
     var newGold = gold - 20;
     localStorage.setItem("Gold", newGold);
@@ -167,15 +194,26 @@ function buyISword(){
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    var rope1 = parseInt(localStorage.getItem("Rope"));
 
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
-       document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+       document.getElementById("buyration").disabled = true;
+    }
+
+    if(rope1 == 1){
+        document.getElementById("buyrope").disabled = true;
+    }
+    else {
+        if(gold1 >= 5){
+            document.getElementById("buyrope").disabled = false;
+        }
+        else{
+           document.getElementById("buyrope").disabled = true; 
+        }
     }
 
     if (gold1 >= 10){
@@ -211,22 +249,23 @@ function buyRope(){
     localStorage.setItem("Rope", (x));
 
     var gold = parseInt(localStorage.getItem("Gold"));
-    var newGold = gold - 20;
+    var newGold = gold - 5;
     localStorage.setItem("Gold", newGold);
     document.getElementById("GoldP").innerHTML = (newGold);
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    document.getElementById("buyrope").disabled = true;
 
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
        document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+       
     }
+
 
     if (gold1 >= 10){
         document.getElementById("buypotion").disabled = false;
@@ -261,21 +300,32 @@ function buyIArmour(){
     localStorage.setItem("IArmour", (x));
 
     var gold = parseInt(localStorage.getItem("Gold"));
-    var newGold = gold - 20;
+    var newGold = gold - 30;
     localStorage.setItem("Gold", newGold);
     document.getElementById("GoldP").innerHTML = (newGold);
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    var rope1 = parseInt(localStorage.getItem("Rope"));
     
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
     }
     else{
-       document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
+       document.getElementById("buyration").disabled = true;
+    }
+
+    if(rope1 == 1){
+        document.getElementById("buyrope").disabled = true;
+    }
+    else {
+        if(gold1 >= 5){
+            document.getElementById("buyrope").disabled = false;
+        }
+        else{
+           document.getElementById("buyrope").disabled = true; 
+        }
     }
 
     if (gold1 >= 10){
