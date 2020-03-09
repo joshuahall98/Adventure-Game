@@ -3,6 +3,7 @@
 <head>
 	<title>Quest for the Lost King's Sword</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <script src="Shop.js"></script>
 	
 
 
@@ -21,23 +22,23 @@
 
     <p style="text-align: left;">Potions (10 Gold) &nbsp;<button type="button" id="buypotion" onclick="buyPotion()">Buy Item </button></p> 
 
-    <p style="text-align: left;">Iron Sword (20 Gold *Increases attack by 1 and you need 3 skill to wield*) &nbsp;<button id="buysword">Buy Item </button></p> 
+    <p style="text-align: left;">Iron Sword (20 Gold *Increases attack by 1 and you need 3 skill or above to wield*) &nbsp;<button id="buysword" onclick="buyISword()">Buy Item </button></p> 
 
-    <p style="text-align: left;">Rope (5 Gold) &nbsp;<button id="buyrope">Buy Item </button></p> 
+    <p style="text-align: left;">Rope (5 Gold) &nbsp;<button id="buyrope" onclick="buyRope()">Buy Item </button></p> 
 
-    <p style="text-align: left;">Iron Armour (30 Gold *Increases max health by 4*) &nbsp;<button id="buyarmour">Buy Item</button></p> 
+    <p style="text-align: left;">Iron Armour (30 Gold *Increases max health by 4*) &nbsp;<button id="buyarmour" onclick="buyIArmour()">Buy Item</button></p> 
 
     <br/>
     <br/>
 
 
 
-    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
+    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Leave store</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="" style="height: 50px; width: 150px;" onclick="saveShop1()" >Save Game</button>    
+     <button type="button" id="SaveGame" onclick="saveShop1()" >Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -86,23 +87,7 @@
 <script>
 
 
-//Rolling dice function
-function random(){
-    document.getElementById("number").innerHTML = Math.floor(Math.random() * 6) +1;
-    document.getElementById("b").disabled = true;
-}
 
-function random2(){
-    document.getElementById("number2").innerHTML = Math.floor(Math.random() * 6) +1;
-    document.getElementById("b2").disabled = true;
-}
-
-function reset(){
-    document.getElementById("number").innerHTML = "";
-    document.getElementById("number2").innerHTML = "";
-    document.getElementById("b").disabled = false;
-    document.getElementById("b2").disabled = false;
-}
 //viewing stats and actives
 function stats(){
     var patk = localStorage.getItem("Attack");
@@ -159,8 +144,13 @@ function stats(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if (gold1 >= 20){
-        document.getElementById("buysword").disabled = false;
+    if(pskl >= 3){
+        if (gold1 >= 20){
+            document.getElementById("buysword").disabled = false;
+        }
+        else{
+            document.getElementById("buysword").disabled = true;
+        }
     }
     else{
         document.getElementById("buysword").disabled = true;
@@ -177,140 +167,7 @@ function stats(){
 }
 window.onload=stats;
 
-//Eat ration button
-function eatRation(){
-    var ration = parseInt(localStorage.getItem("Rations"));
-    var newRation = (ration - 1);
-    localStorage.setItem("Rations", newRation);
-    document.getElementById("RationsP").innerHTML = (newRation);
 
-    var health = parseInt(localStorage.getItem("CHealth"));
-    var newHealth = (health + 2);
-    localStorage.setItem("CHealth", newHealth);
-    
-
-    var maxhealth = parseInt(localStorage.getItem("Health"));
-    var chealth = parseInt(localStorage.getItem("CHealth"));
-    var empty = 1;
-    
-
-    if(chealth > maxhealth){
-        chealth = maxhealth;
-        localStorage.setItem("CHealth", chealth);
-        document.getElementById("chealthstat").innerHTML = (chealth);
-    }
-    else{
-        document.getElementById("chealthstat").innerHTML = (chealth);
-    }
-
-    if(empty >= ration){
-        document.getElementById("rationB").disabled = true;
-    }   
-
-    if(chealth == maxhealth){
-        document.getElementById("rationB").disabled = true;
-    }
-}
-
-//Buy items
-
-function buyRation(){
-    var x = parseInt(localStorage.getItem("Rations"));
-    var xx = x + 1;
-    localStorage.setItem("Rations", xx);
-    document.getElementById("RationsP").innerHTML = (xx);
-
-    var gold = parseInt(localStorage.getItem("Gold"));
-    var newGold = gold - 5;
-    localStorage.setItem("Gold", newGold);
-    document.getElementById("GoldP").innerHTML = (newGold);
-
-    var gold1 = parseInt(localStorage.getItem("Gold"));
-
-    if(gold1 >= 5){
-        document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
-    }
-    else{
-       document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
-    }
-
-    if (gold1 >= 10){
-        document.getElementById("buypotion").disabled = false;
-    }
-    else{
-        document.getElementById("buypotion").disabled = true;
-    }
-
-    if (gold1 >= 20){
-        document.getElementById("buysword").disabled = false;
-    }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
-
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
-        document.getElementById("buyarmour").disabled = true;
-    }
-    
-}
-
-function buyPotion(){
-    var x = parseInt(localStorage.getItem("Potions"));
-    var xx = x + 1;
-    localStorage.setItem("Potions", xx);
-    document.getElementById("PotionsP").innerHTML = (xx);
-
-    var gold = parseInt(localStorage.getItem("Gold"));
-    var newGold = gold - 10;
-    localStorage.setItem("Gold", newGold);
-    document.getElementById("GoldP").innerHTML = (newGold);
-
-    var gold1 = parseInt(localStorage.getItem("Gold"));
-
-    if(gold1 >= 5){
-        document.getElementById("buyration").disabled = false;
-        document.getElementById("buyrope").disabled = false;
-    }
-    else{
-       document.getElementById("buyration").disabled = true; 
-       document.getElementById("buyrope").disabled = true;
-    }
-
-    if (gold1 >= 10){
-        document.getElementById("buypotion").disabled = false;
-    }
-    else{
-        document.getElementById("buypotion").disabled = true;
-    }
-
-    if (gold1 >= 20){
-        document.getElementById("buysword").disabled = false;
-    }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
-
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
-        document.getElementById("buyarmour").disabled = true;
-    }
-    
-}
-
-//savegame
-function saveShop1(){
-    var saveInfo = "Shop1";
-    localStorage.setItem("Save", saveInfo);
-    window.open("StartGame.html");
-    window.close("Shop_1.html");
-}
 
 
 </script>

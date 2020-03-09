@@ -12,16 +12,16 @@
 
 	<p>At the base of a giant mountain, surrounded by forest and fields, in the country of Vanyeuor, stands a small village, it is here where our story begins. Three days ago news reached the village that the whereabouts of the crypt that held the Lost King's Sword had been found, but not the sword itself. Legend says that the wielder of the sword will be given the power to rule over the land, the power of the old Kings. The sword was lost over three hundred years ago and since then no king has ruled over Vanyeuor, the lands have become a dangerous place and are overun with villainous beings who are exploiting those of lesser power than they. If they were to get their hands on the sword a new era of evil would commence...</p>
     <p>
-	Our protagonist in this story is a young man by the name of Jan'kin, who only recently reached manhood. His great grandfather used to tell him stories from when he was a child, about the times when kings ruled. When are young protagonist heard the news about the sword, he decided he was going to be the one to bring back the old ways. It took him the three days to plan his trip, to pack all his essentials (Rations , Flint, Wood Cutter's Axe, Spare Clothes and a purse full of gold <button id="stock" type="button" onclick="this.disabled=true; stock1()">Stock Items</button>) and to say goodbye to family and friends, because his return was unlikely. Before he set out his great grandfather bestowed upon him a gift he believed would help Jan'kin on his journey. It was a backpack he had won from a bet with a travelling merchant, the bag was a prized possession of his because it was imbued with magic, making the bag weightless and seemingly bottomless. Ready to set out on his adventure Jan'kin stood on the edge of the village, it is here that YOU the player take control of this story...
+	Our protagonist in this story is a young man by the name of Jan'kin, who only recently reached manhood. His great grandfather used to tell him stories from when he was a child, about the times when kings ruled. When are young protagonist heard the news about the sword, he decided he was going to be the one to bring back the old ways. It took him the three days to plan his trip, to pack all his essentials (Rations , Flint, Wood Cutter's Axe, Spare Clothes and a purse full of gold <u>*Items will be stored in your backpack when you continue*</u>) and to say goodbye to family and friends, because his return was unlikely. Before he set out his great grandfather bestowed upon him a gift he believed would help Jan'kin on his journey. It was a backpack he had won from a bet with a travelling merchant, the bag was a prized possession of his because it was imbued with magic, making the bag weightless and seemingly bottomless. Ready to set out on his adventure Jan'kin stood on the edge of the village, it is here that YOU the player take control of this story...
 	 </p>
 
     
-     <a href="Page_2.html"><button type="button" id="continue" style="height: 50px; width: 150px;">Continue</button></a>
+     <a href="Page_2.html"><button type="button" id="continue" style="height: 50px; width: 150px;" onclick="stock1()">Continue</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="SaveGame1" style="height: 50px; width: 150px;" onclick="saveGame1()">Save Game</button>
+     <button type="button" id="SaveGame" onclick="saveGame1()">Save Game</button>
 
      <!-- ALL KIT OPTIONS -->
      <div style="position: fixed;bottom: 0;right: 0; background-color: #ADD8E6; padding-left: 20px; padding-right: 20px;font-size: 20px;">
@@ -62,6 +62,51 @@
 
 </div>
 </body>
+
+<script>
+    //viewing stats and actives
+function stats(){
+    var patk = localStorage.getItem("Attack");
+    document.getElementById("attackStat").innerHTML = (patk);
+    var php = localStorage.getItem("Health");
+    document.getElementById("healthStat").innerHTML = (php);
+    var cphp = localStorage.getItem("CHealth");
+    document.getElementById("chealthstat").innerHTML = (cphp);
+    var plck = localStorage.getItem("Luck");
+    document.getElementById("luckStat").innerHTML = (plck);
+    var pskl = localStorage.getItem("Skill");
+    document.getElementById("skillStat").innerHTML = (pskl);
+    var rations1 = localStorage.getItem("Rations");
+    document.getElementById("RationsP").innerHTML = (rations1);
+    var potions1 = localStorage.getItem("Potions");
+    document.getElementById("PotionsP").innerHTML = (potions1);
+    var gold1 = localStorage.getItem("Gold");
+    document.getElementById("GoldP").innerHTML = (gold1);
+
+    var empty = 0;
+    if(empty >= cphp ){
+        var saveInfo = " ";
+        localStorage.setItem("Save", saveInfo);
+        window.open("StartGame.html");
+        window.close();
+    }
+
+    if(empty >= rations1){
+        document.getElementById("rationB").disabled = true;
+    }
+    else{
+        document.getElementById("rationB").disabled = false;
+    }
+
+
+    if(php == cphp){
+        document.getElementById("rationB").disabled = true;
+        document.getElementById("potionB").disabled = true;
+    }
+    
+}
+window.onload=stats;
+</script>
 
 
 </html>

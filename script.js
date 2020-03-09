@@ -17,48 +17,7 @@ function reset(){
 	document.getElementById("b2").disabled = false;
 }
 
-//viewing stats and actives
-function stats(){
-	var patk = localStorage.getItem("Attack");
-	document.getElementById("attackStat").innerHTML = (patk);
-	var php = localStorage.getItem("Health");
-	document.getElementById("healthStat").innerHTML = (php);
-	var cphp = localStorage.getItem("CHealth");
-	document.getElementById("chealthstat").innerHTML = (cphp);
-	var plck = localStorage.getItem("Luck");
-	document.getElementById("luckStat").innerHTML = (plck);
-	var pskl = localStorage.getItem("Skill");
-	document.getElementById("skillStat").innerHTML = (pskl);
-	var rations1 = localStorage.getItem("Rations");
-    document.getElementById("RationsP").innerHTML = (rations1);
-    var potions1 = localStorage.getItem("Potions");
-    document.getElementById("PotionsP").innerHTML = (potions1);
-    var gold1 = localStorage.getItem("Gold");
-    document.getElementById("GoldP").innerHTML = (gold1);
 
-    var empty = 0;
-    if(empty >= cphp ){
-	    var saveInfo = " ";
-	    localStorage.setItem("Save", saveInfo);
-	    window.open("StartGame.html");
-	    window.close();
-    }
-
-    if(empty >= rations1){
-    	document.getElementById("rationB").disabled = true;
-    }
-    else{
-    	document.getElementById("rationB").disabled = false;
-    }
-
-
-    if(php == cphp){
-    	document.getElementById("rationB").disabled = true;
-    	document.getElementById("potionB").disabled = true;
-    }
-    
-}
-window.onload=stats;
 
 //Obtaining and losing items
 function stock1(){
@@ -215,4 +174,18 @@ function saveGame11(){
 	localStorage.setItem("Save", saveInfo);
 	window.open("StartGame.html");
 	window.close("Page_11.html");
+}
+
+function saveGame12(){
+	var saveInfo = "Page12";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_12.html");
+}
+
+function saveGame13(){
+	var saveInfo = "Page13";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_13.html");
 }

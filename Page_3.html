@@ -12,14 +12,14 @@
 
     <h1>Take the Road</h1>
 
-    <p>You decide you're going to enjoy your new found freedom and the nice weather. You follow the road around the forest and eventually a lake appears on the left hand side of the road. You stop to admire the sunlight bouncing off of the lake when you notice something gleaming on the ground, it's gold coin, you reach down and pick it up, adding it to your coin purse <button id="storeGold2" type="button" onclick="this.disabled=true; storeGold1()">Store Gold</button>. You continue on your way delighted with your luck.</p>
+    <p>You decide you're going to enjoy your new found freedom and the nice weather. You follow the road around the forest and eventually a lake appears on the left hand side of the road. You stop to admire the sunlight bouncing off of the lake when you notice something gleaming on the ground, it's gold coin, you reach down and pick it up, adding it to your coin purse. You continue on your way delighted with your luck.</p>
 
-    <a href="Page_5.html"><button type="button" id="continue" style="height: 50px; width: 150px;">Continue</button></a>
+    <a href="Page_5.html"><button type="button" id="continue" style="height: 50px; width: 150px;" onclick="storeGold1()">Continue</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="SaveGame3" style="height: 50px; width: 150px;" onclick="saveGame3() ">Save Game</button>    
+     <button type="button" id="SaveGame" onclick="saveGame3() ">Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -61,5 +61,49 @@
 </div>
 </body>
 
+<script>
+    //viewing stats and actives
+function stats(){
+    var patk = localStorage.getItem("Attack");
+    document.getElementById("attackStat").innerHTML = (patk);
+    var php = localStorage.getItem("Health");
+    document.getElementById("healthStat").innerHTML = (php);
+    var cphp = localStorage.getItem("CHealth");
+    document.getElementById("chealthstat").innerHTML = (cphp);
+    var plck = localStorage.getItem("Luck");
+    document.getElementById("luckStat").innerHTML = (plck);
+    var pskl = localStorage.getItem("Skill");
+    document.getElementById("skillStat").innerHTML = (pskl);
+    var rations1 = localStorage.getItem("Rations");
+    document.getElementById("RationsP").innerHTML = (rations1);
+    var potions1 = localStorage.getItem("Potions");
+    document.getElementById("PotionsP").innerHTML = (potions1);
+    var gold1 = localStorage.getItem("Gold");
+    document.getElementById("GoldP").innerHTML = (gold1);
+
+    var empty = 0;
+    if(empty >= cphp ){
+        var saveInfo = " ";
+        localStorage.setItem("Save", saveInfo);
+        window.open("StartGame.html");
+        window.close();
+    }
+
+    if(empty >= rations1){
+        document.getElementById("rationB").disabled = true;
+    }
+    else{
+        document.getElementById("rationB").disabled = false;
+    }
+
+
+    if(php == cphp){
+        document.getElementById("rationB").disabled = true;
+        document.getElementById("potionB").disabled = true;
+    }
+    
+}
+window.onload=stats;
+</script>
 
 </html>

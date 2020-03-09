@@ -76,3 +76,8 @@ p{
 	padding-left: 10%; 
 	padding-right: 10%
 }
+
+#SaveGame{
+	height: 50px; 
+	width: 150px;
+}

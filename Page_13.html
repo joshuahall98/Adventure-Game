@@ -10,7 +10,7 @@
 <body class="divbod">
 <div id="divmain">
 
-    <h1></h1>
+    <h1>Leave the Tavern</h1>
 
     <p></p>
 
@@ -19,7 +19,7 @@
      <br/>
      <br/>
      <br/>
-     <button type="button" id="SaveGame" onclick="saveGame1()" disabled="true">Save Game</button>    
+     <button type="button" id="SaveGame" onclick="saveGame13()">Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -64,55 +64,3 @@
 
 
 </html>
-onload script
-
-<script>
-   
-    //stats
-    function stats(){
-        var patk = localStorage.getItem("Attack");
-        document.getElementById("attackStat").innerHTML = (patk);
-        var php = localStorage.getItem("Health");
-        document.getElementById("healthStat").innerHTML = (php);
-        var cphp = localStorage.getItem("CHealth");
-        document.getElementById("chealthstat").innerHTML = (cphp);
-        var plck = localStorage.getItem("Luck");
-        document.getElementById("luckStat").innerHTML = (plck);
-        var pskl = localStorage.getItem("Skill");
-        document.getElementById("skillStat").innerHTML = (pskl);
-        var rations1 = localStorage.getItem("Rations");
-        document.getElementById("RationsP").innerHTML = (rations1);
-        var potions1 = localStorage.getItem("Potions");
-        document.getElementById("PotionsP").innerHTML = (potions1);
-        var gold1 = localStorage.getItem("Gold");
-        document.getElementById("GoldP").innerHTML = (gold1);
-        var eatk = localStorage.getItem("BoyAttack");
-        document.getElementById("boyAttack").innerHTML = (eatk);
-        var ehp = localStorage.getItem("BoyHealth");
-        document.getElementById("boyHealth").innerHTML = (ehp);
-
-        var empty = 0;
-        if(empty >= cphp ){
-            var saveInfo = " ";
-            localStorage.setItem("Save", saveInfo);
-            window.open("StartGame.html");
-            window.close();
-        }
-
-        if(empty >= rations1){
-            document.getElementById("rationB").disabled = true;
-        }
-        else{
-            document.getElementById("rationB").disabled = false;
-        }
-
-
-        if(php == cphp){
-            document.getElementById("rationB").disabled = true;
-            document.getElementById("potionB").disabled = true;
-        }
-    }
-    window.onload=stats;
-
-
-   </script>

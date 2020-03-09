@@ -12,10 +12,14 @@
 		<h1 >Backpack for storing equipment</h1>
 		<h2><b>*If an item is crossed out it means you haven't obtained it yet or you have lost it*<br/>
 		*You can search your backpack for key words with 'Ctrl+F'*<br/>
-		*Don't forget to refrsh the page to update your bag*</b></h2> 
+		*Don't forget to refresh the page to update your bag*</b></h2> 
 		
 		<p id="waxep" style="text-align: left"></p>
 		<p id="flintp" style="text-align: left"></p>
+		<p id="iswordp" style="text-align: left"></p>
+		<p id="ropep" style="text-align: left"></p>
+		<p id="iarmourp" style="text-align: left"></p>
+
 
 
 </div>
@@ -35,8 +39,32 @@ function backpack(){
  	if(flint == 0){
  		document.getElementById("flintp").innerHTML = ('<del>')+("Flint")+('</del>');
  	}
- 	else if(waxe == 1){
+ 	else if(flint == 1){
  		document.getElementById("flintp").innerHTML = ("Flint");
+ 	}
+
+ 	var isword = localStorage.getItem("ISword");
+ 	if(isword == 0){
+ 		document.getElementById("iswordp").innerHTML = ('<del>')+("Iron Sword")+('</del>');
+ 	}
+ 	else if(isword == 1){
+ 		document.getElementById("iswordp").innerHTML = ("Iron Sword");
+ 	}
+
+ 	var rope = localStorage.getItem("Rope");
+ 	if(rope == 0){
+ 		document.getElementById("ropep").innerHTML = ('<del>')+("Rope")+('</del>');
+ 	}
+ 	else if(rope == 1){
+ 		document.getElementById("ropep").innerHTML = ("Rope");
+ 	}
+
+ 	var iarmour = localStorage.getItem("IArmour");
+ 	if(iarmour == 0){
+ 		document.getElementById("iarmourp").innerHTML = ('<del>')+("Iron Armour")+('</del>');
+ 	}
+ 	else if(iarmour == 1){
+ 		document.getElementById("iarmourp").innerHTML = ("Iron Armour");
  	}
 }
  window.onload=backpack;
