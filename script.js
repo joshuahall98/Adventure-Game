@@ -50,6 +50,15 @@ function loseGold1(){
 	document.getElementById("GoldP").innerHTML = (newGold)
 }
 
+function loseGold2(){
+	var gold = parseInt(localStorage.getItem("Gold"));
+	var newGold = (gold - 10);
+	localStorage.setItem("Gold", newGold);
+	document.getElementById("GoldP").innerHTML = (newGold)
+}
+
+
+
 function loseItems1(){
 	var gold = 0;
 	localStorage.setItem("Gold", gold);
@@ -60,6 +69,8 @@ function loseItems1(){
 	localStorage.setItem("CHealth", newHealth);
 	document.getElementById("chealthstat").innerHTML = (newHealth);
 }
+
+
 	
 
 //Eat ration button
