@@ -67,6 +67,8 @@ function buyRation(){
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
     var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
 
     if(gold1 >= 5){
         document.getElementById("buyration").disabled = false;
@@ -94,23 +96,33 @@ function buyRation(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if(pskl >= 3){
-        if (gold1 >= 20){
-            document.getElementById("buysword").disabled = false;
+    if(sword1 == 1){
+        document.getElementById("buysword").disabled = true;
+    }
+    else{
+        if(pskl >= 3){
+            if (gold1 >= 20){
+                document.getElementById("buysword").disabled = false;
+            }
+            else{
+                document.getElementById("buysword").disabled = true;
+            }
         }
         else{
             document.getElementById("buysword").disabled = true;
         }
     }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
 
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
+    if(armour1 == 1){
         document.getElementById("buyarmour").disabled = true;
+    }
+    else {
+        if (gold1 >= 30){
+            document.getElementById("buyarmour").disabled = false;
+        }
+        else{
+            document.getElementById("buyarmour").disabled = true;
+        }
     }
     
 }
@@ -129,6 +141,8 @@ function buyPotion(){
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
     var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
 
 
     if(gold1 >= 5){
@@ -157,23 +171,33 @@ function buyPotion(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if(pskl >= 3){
-        if (gold1 >= 20){
-            document.getElementById("buysword").disabled = false;
+    if(sword1 == 1){
+        document.getElementById("buysword").disabled = true;
+    }
+    else{
+        if(pskl >= 3){
+            if (gold1 >= 20){
+                document.getElementById("buysword").disabled = false;
+            }
+            else{
+                document.getElementById("buysword").disabled = true;
+            }
         }
         else{
             document.getElementById("buysword").disabled = true;
         }
     }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
 
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
+    if(armour1 == 1){
         document.getElementById("buyarmour").disabled = true;
+    }
+    else {
+        if (gold1 >= 30){
+            document.getElementById("buyarmour").disabled = false;
+        }
+        else{
+            document.getElementById("buyarmour").disabled = true;
+        }
     }
     
 }
@@ -195,6 +219,9 @@ function buyISword(){
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
     var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
+    document.getElementById("buysword").disabled = true;
 
 
     if(gold1 >= 5){
@@ -235,11 +262,16 @@ function buyISword(){
         document.getElementById("buysword").disabled = true;
     }
 
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
+    if(armour1 == 1){
         document.getElementById("buyarmour").disabled = true;
+    }
+    else {
+        if (gold1 >= 30){
+            document.getElementById("buyarmour").disabled = false;
+        }
+        else{
+            document.getElementById("buyarmour").disabled = true;
+        }
     }
     
 }
@@ -255,6 +287,9 @@ function buyRope(){
 
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
+    var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
     document.getElementById("buyrope").disabled = true;
 
 
@@ -274,23 +309,33 @@ function buyRope(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if(pskl >= 3){
-        if (gold1 >= 20){
-            document.getElementById("buysword").disabled = false;
+    if(sword1 == 1){
+        document.getElementById("buysword").disabled = true;
+    }
+    else{
+        if(pskl >= 3){
+            if (gold1 >= 20){
+                document.getElementById("buysword").disabled = false;
+            }
+            else{
+                document.getElementById("buysword").disabled = true;
+            }
         }
         else{
             document.getElementById("buysword").disabled = true;
         }
     }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
 
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
+    if(armour1 == 1){
         document.getElementById("buyarmour").disabled = true;
+    }
+    else {
+        if (gold1 >= 30){
+            document.getElementById("buyarmour").disabled = false;
+        }
+        else{
+            document.getElementById("buyarmour").disabled = true;
+        }
     }
     
 }
@@ -307,6 +352,9 @@ function buyIArmour(){
     var gold1 = parseInt(localStorage.getItem("Gold"));
     var pskl = parseInt(localStorage.getItem("Skill"));
     var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
+    document.getElementById("buyarmour").disabled = true;
     
 
     if(gold1 >= 5){
@@ -335,16 +383,21 @@ function buyIArmour(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if(pskl >= 3){
-        if (gold1 >= 20){
-            document.getElementById("buysword").disabled = false;
+    if(sword1 == 1){
+        document.getElementById("buysword").disabled = true;
+    }
+    else{
+        if(pskl >= 3){
+            if (gold1 >= 20){
+                document.getElementById("buysword").disabled = false;
+            }
+            else{
+                document.getElementById("buysword").disabled = true;
+            }
         }
         else{
             document.getElementById("buysword").disabled = true;
         }
-    }
-    else{
-        document.getElementById("buysword").disabled = true;
     }
 
     if (gold1 >= 30){

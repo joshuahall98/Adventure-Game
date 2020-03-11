@@ -33,7 +33,7 @@
 
 
 
-    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Leave store</button></a>
+    <a href="Page_14.html"><button type="button" id="continue" style="height: 50px; width: 150px;">Leave store</button></a>
      <br/>
      <br/>
      <br/>
@@ -107,9 +107,12 @@ function stats(){
     var gold1 = localStorage.getItem("Gold");
     document.getElementById("GoldP").innerHTML = (gold1);
 
-    var rope1 = localStorage.getItem("Rope");
+    var rope1 = parseInt(localStorage.getItem("Rope"));
+    var sword1 = parseInt(localStorage.getItem("ISword"));
+    var armour1 = parseInt(localStorage.getItem("IArmour"));
 
     var empty = 0;
+
     if(empty >= cphp ){
         var saveInfo = " ";
         localStorage.setItem("Save", saveInfo);
@@ -137,7 +140,7 @@ function stats(){
        document.getElementById("buyration").disabled = true;
     }
 
-     if(rope1 == 1){
+    if(rope1 == 1){
         document.getElementById("buyrope").disabled = true;
     }
     else {
@@ -149,6 +152,7 @@ function stats(){
         }
     }
 
+
     if (gold1 >= 10){
         document.getElementById("buypotion").disabled = false;
     }
@@ -156,26 +160,35 @@ function stats(){
         document.getElementById("buypotion").disabled = true;
     }
 
-    if(pskl >= 3){
-        if (gold1 >= 20){
-            document.getElementById("buysword").disabled = false;
+    if(sword1 == 1){
+        document.getElementById("buysword").disabled = true;
+    }
+    else{
+        if(pskl >= 3){
+            if (gold1 >= 20){
+                document.getElementById("buysword").disabled = false;
+            }
+            else{
+                document.getElementById("buysword").disabled = true;
+            }
         }
         else{
             document.getElementById("buysword").disabled = true;
         }
     }
-    else{
-        document.getElementById("buysword").disabled = true;
-    }
 
-    if (gold1 >= 30){
-        document.getElementById("buyarmour").disabled = false;
-    }
-    else{
+    if(armour1 == 1){
         document.getElementById("buyarmour").disabled = true;
     }
-
-    
+    else {
+        if (gold1 >= 30){
+            document.getElementById("buyarmour").disabled = false;
+        }
+        else{
+            document.getElementById("buyarmour").disabled = true;
+        }
+    }
+   
 }
 window.onload=stats;
 

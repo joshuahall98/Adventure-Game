@@ -200,3 +200,10 @@ function saveGame13(){
 	window.open("StartGame.html");
 	window.close("Page_13.html");
 }
+
+function saveGame14(){
+	var saveInfo = "Page14";
+	localStorage.setItem("Save", saveInfo);
+	window.open("StartGame.html");
+	window.close("Page_14.html");
+}
