@@ -12,9 +12,10 @@
 
     <h1>Leave the Tavern</h1>
 
-    <p></p>
+    <p><p>You leave the tavern with your limited information, although it is not much it does give you a general direction. You consider going to the shop to see if anyone else has anything helpful to tell you about the whereabouts of the sword when you hear a scream from behind. You turn to see a small group of people fleeing from half a dozen armoured men on horse back. You unfortunately realise that these are raiders, until now none had reached this side of the mountain and both the villages had been left in peace. These were the kind of men you did not want getting their hands on the sword. The horse riders start smashing everything in their path and lighting the buildings on fire. Some men of the village rush forward with an assortment of weapons and equipment to deal with the intruders. Danger does not reach this side of the mountain often and they are poorly equiped to deal with it. You have mere seconds to decide what to do.</p></p>
 
-    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
+    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Help the men fight</button></a>
+    <a href=""><button type="button" id="continue2" style="height: 50px; width: 150px;" disabled="true">Run</button></a>
      <br/>
      <br/>
      <br/>
@@ -61,6 +62,51 @@
 </div>
 </body>
 
+<script>
+   
+    //stats
+    function stats(){
+        var patk = localStorage.getItem("Attack");
+        document.getElementById("attackStat").innerHTML = (patk);
+        var php = localStorage.getItem("Health");
+        document.getElementById("healthStat").innerHTML = (php);
+        var cphp = localStorage.getItem("CHealth");
+        document.getElementById("chealthstat").innerHTML = (cphp);
+        var plck = localStorage.getItem("Luck");
+        document.getElementById("luckStat").innerHTML = (plck);
+        var pskl = localStorage.getItem("Skill");
+        document.getElementById("skillStat").innerHTML = (pskl);
+        var rations1 = localStorage.getItem("Rations");
+        document.getElementById("RationsP").innerHTML = (rations1);
+        var potions1 = localStorage.getItem("Potions");
+        document.getElementById("PotionsP").innerHTML = (potions1);
+        var gold1 = localStorage.getItem("Gold");
+        document.getElementById("GoldP").innerHTML = (gold1);
+        
+        var empty = 0;
+        if(empty >= cphp ){
+            var saveInfo = " ";
+            localStorage.setItem("Save", saveInfo);
+            window.open("StartGame.html");
+            window.close();
+        }
 
+        if(empty >= rations1){
+            document.getElementById("rationB").disabled = true;
+        }
+        else{
+            document.getElementById("rationB").disabled = false;
+        }
+
+
+        if(php == cphp){
+            document.getElementById("rationB").disabled = true;
+            document.getElementById("potionB").disabled = true;
+        }
+    }
+    window.onload=stats;
+
+
+   </script>
 
 </html>

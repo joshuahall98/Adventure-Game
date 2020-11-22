@@ -17,11 +17,24 @@
 
     <br/>
     <br/>
-    <a href="Rules.html"><button type="button" id="continue" style="height: 50px; width: 150px;" >Continue</button></a>
+    <p>What is your name adventurer?</p>
+    <input type="text" id="PlayerName"  maxlength="50" placeholder="Player Name">
+
+    <br/>
+    <br/>
+    <br/>
+    <a href="Rules.html"><button type="button" id="continue" style="height: 50px; width: 150px;" onclick="CreateName()">Continue</button></a>
     
     
 </div>
 </body>
+<script>
+    function CreateName(){
+        var newName = document.getElementById("PlayerName").value;
+        
+        localStorage.setItem("PlayerName", newName);
 
+    }
+</script>
 
 </html>

@@ -10,18 +10,24 @@
 <body class="divbod">
 <div id="divmain">
 
-    <h1>Pay the Gold</h1>
+    <h1>The Raiders</h1>
 
-    <p>You hand over your gold to the bar man, he smiles and beckons for you to come to the back of the bar. You follow him into a little alcohol store room at the back. <br/>
-    "Right, from what I've heard from those travelling through there's a man who has vast knowledge on the sword, he lives in a dangerous swamp just on the other side of the mountain but if you can find him he'll give you the information you're looking for"<br/>
-    You thank the bar man for his information and turn to leave when you hear screaming and the sounds of combat, you and a few other men rush out to see what the commotion is.</p>
+    <p>You leave the tavern with the other men and find the village being attacked by a group of raiders on horse back. The raiders were running rampage attacking people and burning buildings freely. This was because the men of the village were not equiped to deal with an attack like this as they never occured this side of the mountain. You aren't even given time to decide whether or not you want to help the villagers when the raiders have surrounded you and the other men from the tavern. <br/>
+    "Drop your weapons or quench our blades, they hunger for blood."<br/>
+    You and the other men grundingly oblige to the request as you see no other option. A gap appears within the ranks of the raiders and another rider appears. His atire differs from that of the raiders, he has a crest of a wild boar with bloody tusks on his armour and the way the other raiders look to him you can tell he's their leader.<br/>
+    "Sir Mullac, we've captured these lot for you, what is it you'd like us to do with them."<br/>
+    Sir Mullac glances over you and other men standing before him. <br/>
+    "Kill those who can't hold their own in combat, the others can be recruited or choose the same fate."<br/>
+    Sir Mullac turns and leaves while his men laugh cruelly, they start choosing men one by one to fight against a chosen raider. The village men begin to fall around you one after the other until finally you're the last alive, standing among the blood and bodies.<br/>
+    "I left this one til last on purpose, they look like a tough one" says the raider "will we earn at least one new able bodied warrior today?"<br/>
+    He gets down off his horse and advances on you.</p>
 
-    <a href="Page_15.html"><button type="button" id="continue" style="height: 50px; width: 150px;" >Continue</button></a>
+    <a href=""><button type="button" id="continue" style="height: 50px; width: 150px;" disabled="true">Continue</button></a>
      <br/>
      <br/>
      <br/>
      <br/>
-     <button type="button" id="SaveGame" onclick="saveGame12()">Save Game</button>    
+     <button type="button" id="SaveGame" onclick="saveGame15()" >Save Game</button>    
 
     <!-- ALL KIT OPTIONS -->
 
@@ -63,6 +69,8 @@
 </div>
 </body>
 
+<!-- onload script -->
+
 <script>
    
     //stats
@@ -83,7 +91,7 @@
         document.getElementById("PotionsP").innerHTML = (potions1);
         var gold1 = localStorage.getItem("Gold");
         document.getElementById("GoldP").innerHTML = (gold1);
-        
+
         var empty = 0;
         if(empty >= cphp ){
             var saveInfo = " ";
