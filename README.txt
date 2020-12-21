@@ -1,0 +1,1 @@
+Run the StartGame.html to test the game
