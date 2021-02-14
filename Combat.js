@@ -114,7 +114,8 @@
             document.getElementById("EA").disabled = true;
             document.getElementById("EA2").disabled = true;
             document.getElementById("continue").disabled = false;
-            document.getElementById("winner").innerHTML = ("Jan'kin wins!");
+            var pName = localStorage.getItem("PlayerName");
+            document.getElementById("winner").innerHTML = (pName+"wins");
         }
         else if(battleend >= playerhealth){
             var saveInfo = " ";

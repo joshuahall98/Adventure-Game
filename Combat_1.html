@@ -136,12 +136,14 @@
         }
 
         if(empty >= ehp){
+            
             document.getElementById("PA").disabled = true;
             document.getElementById("PA2").disabled = true;
             document.getElementById("EA").disabled = true;
             document.getElementById("EA2").disabled = true;
             document.getElementById("continue").disabled = false;
-            document.getElementById("winner").innerHTML = ("Jan'kin wins!");
+            var pName = localStorage.getItem("PlayerName");
+            document.getElementById("winner").innerHTML = (pName + " wins");
         }
     }
     window.onload=stats;
